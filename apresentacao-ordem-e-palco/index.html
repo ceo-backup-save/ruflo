@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Ordem e o Palco · 16 slides · 1920×1080</title>
+<meta name="description" content="Nova apresentação sobre a maçonaria entre a rede e o poder (1717–1964). Escala Full HD 1920×1080, design system Minimal Editorial Mono.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF;
+    --ink:#111111;
+    --graphite:#1A1A1A;
+    --graphite-2:#2B2B2E;
+    --body:#666B73;
+    --line:#D8DCE3;
+    --sans:"Inter","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;background:#E9EBEF;color:var(--ink);
+    font-family:var(--sans);-webkit-font-smoothing:antialiased;
+    display:flex;align-items:center;justify-content:center;overflow:hidden;
+  }
+
+  .stage{position:relative;width:1920px;height:1080px;background:var(--white);transform-origin:center center;flex:0 0 auto}
+  .slide{position:absolute;inset:0;background:var(--white);padding:96px 114px 92px;display:none;overflow:hidden}
+  .slide.is-active{display:block}
+
+  /* tipografia — escala 1,5× da versão de 1280×720 */
+  .kicker{font-size:17px;line-height:1.2;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--body)}
+  h1.display{margin:0;font-size:132px;line-height:.98;letter-spacing:-.035em;font-weight:700}
+  h2.h2{margin:0;font-size:86px;line-height:1.02;letter-spacing:-.032em;font-weight:700}
+  h3.h3{margin:0;font-size:40px;line-height:1.16;letter-spacing:-.02em;font-weight:600}
+  p{margin:0;font-size:28px;line-height:1.5;color:var(--body)}
+  .lead{font-size:34px;line-height:1.4;color:var(--graphite-2)}
+  .small{font-size:19px;line-height:1.48;color:var(--body)}
+  .micro{font-size:16px;line-height:1.4;color:var(--body)}
+  .metric{font-size:208px;line-height:.84;letter-spacing:-.05em;font-weight:700;margin:0;font-variant-numeric:tabular-nums}
+  .year{font-size:72px;line-height:1;letter-spacing:-.04em;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+
+  .body{position:absolute;inset:212px 114px 140px}
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;height:100%}
+
+  .tab{
+    position:absolute;top:0;left:114px;background:var(--graphite);color:#fff;
+    font-size:14px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+    padding:14px 22px 13px;
+  }
+  .meta{position:absolute;top:40px;right:114px;font-size:14px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--body)}
+  .foot{
+    position:absolute;left:114px;right:114px;bottom:40px;
+    display:flex;justify-content:space-between;align-items:center;
+    border-top:1px solid var(--line);padding-top:16px;
+    font-size:14px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--body);
+  }
+  .rule{height:1px;background:var(--line);border:0;margin:0}
+  .rule-ink{width:96px;height:3px;background:var(--graphite);border:0;margin:0}
+
+  .ph{position:relative;overflow:hidden;background:#F2F3F5}
+  .ph img{display:block;width:100%;height:100%;object-fit:cover}
+  .cap{display:block;margin-top:14px;font-size:16px;letter-spacing:.04em;color:var(--body)}
+
+  .card{background:var(--graphite);color:#fff;padding:46px 50px}
+  .card .kicker{color:#9EA4AC}
+  .card p{color:#C6CAD1}
+  .card .big{font-size:44px;line-height:1.12;letter-spacing:-.025em;font-weight:600;color:#fff}
+
+  .folio{
+    position:absolute;right:96px;bottom:96px;
+    font-size:300px;line-height:.8;font-weight:700;letter-spacing:-.05em;
+    color:var(--line);z-index:0;pointer-events:none;font-variant-numeric:tabular-nums;
+  }
+
+  /* listas */
+  .list{margin:0;padding:0;list-style:none}
+  .list li{border-top:1px solid var(--line);padding:24px 0 22px;display:grid;grid-template-columns:44px 1fr;column-gap:24px}
+  .list li:last-child{border-bottom:1px solid var(--line)}
+  .list .t{font-size:28px;font-weight:600;letter-spacing:-.01em;color:var(--ink);line-height:1.2}
+  .list .d{font-size:21px;line-height:1.42;color:var(--body);margin-top:7px}
+  .ic{width:34px;height:34px;stroke:var(--graphite);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;margin-top:3px}
+
+  /* tabela */
+  .tbl{width:100%;border-collapse:collapse}
+  .tbl td{border-top:1px solid var(--line);padding:23px 0;vertical-align:top;font-size:23px;line-height:1.34}
+  .tbl tr:last-child td{border-bottom:1px solid var(--line)}
+  .tbl td:first-child{color:var(--ink);font-weight:500;padding-right:30px}
+  .tbl td:last-child{color:var(--body)}
+
+  /* cronologia em 3 atos */
+  .act-row{display:grid;grid-template-columns:250px repeat(4,1fr);column-gap:24px;border-top:1px solid var(--line);padding:26px 0 24px;align-items:start}
+  .act-row:last-of-type{border-bottom:1px solid var(--line)}
+  .act-label .a{font-size:15px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--body)}
+  .act-label .y{font-size:32px;font-weight:700;letter-spacing:-.02em;color:var(--ink);margin-top:6px}
+  .ms .y{font-size:26px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+  .ms .n{font-size:21px;font-weight:600;color:var(--ink);margin-top:5px;line-height:1.2}
+  .ms .d{font-size:16px;line-height:1.4;color:var(--body);margin-top:4px}
+
+  /* mecanismos e limites */
+  .cells{display:grid;grid-template-columns:repeat(4,1fr);column-gap:32px;row-gap:44px}
+  .cell .k{font-size:16px;font-weight:600;letter-spacing:.12em;color:var(--body);font-variant-numeric:tabular-nums}
+  .cell .n{font-size:28px;font-weight:600;letter-spacing:-.015em;color:var(--ink);margin-top:10px;line-height:1.2}
+  .cell .d{font-size:18px;line-height:1.42;color:var(--body);margin-top:8px}
+
+  /* controles */
+  .ui{position:fixed;left:0;right:0;bottom:22px;display:flex;justify-content:center;gap:16px;align-items:center;z-index:30}
+  .ui button{
+    font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+    background:transparent;border:1px solid #C9CDD4;color:#2B2B2E;padding:11px 16px;cursor:pointer;border-radius:0;
+  }
+  .ui button:hover{border-color:#2B2B2E}
+  .ui button:focus-visible{outline:2px solid #1A1A1A;outline-offset:2px}
+  .hint{position:fixed;left:50%;bottom:76px;transform:translateX(-50%);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8A9098;transition:opacity .4s;z-index:30;pointer-events:none}
+  .hint.is-hidden{opacity:0}
+  .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+  @media print{
+    @page{size:1920px 1080px;margin:0}
+    body{display:block;background:#fff;overflow:visible}
+    .stage{transform:none!important;width:1920px;height:auto}
+    .slide{display:block!important;position:relative;width:1920px;height:1080px;break-after:page;page-break-after:always}
+    .ui,.hint{display:none!important}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M6 21V4m0 0c4-2 8 2 12 0v9c-4 2-8-2-12 0"/></symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 4v16M7 20h10M3 8h18M7 8l-4 7h8zM17 8l4 7h-8z"/></symbol>
+    <symbol id="i-column" viewBox="0 0 24 24"><path d="M4 21h16M6 21V7m12 14V7M4 7h16M9 7V3h6v4"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17.5" cy="9" r="2.5"/><path d="M15.5 14.6c3 .4 5 2.8 5 5.4"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5v13a2 2 0 0 1 2-2h14V3H6a2 2 0 0 0-2 2z"/><path d="M4 16a2 2 0 0 1 2-2h14"/><path d="M8 7h8"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c3 3.6 3 12.4 0 16M12 4c-3 3.6-3 12.4 0 16"/></symbol>
+  </defs>
+</svg>
+
+<main class="stage" id="stage" aria-label="Apresentação A Ordem e o Palco">
+
+  <!-- 01 -->
+  <section class="slide is-active" aria-label="Slide 1: capa">
+    <span class="tab">Estudo · 2026</span>
+    <span class="meta">16 slides · 4 atos</span>
+
+    <div class="ph" style="position:absolute;top:0;right:0;width:40%;height:92%">
+      <img src="img/hero.jpg" alt="Sala de arquivo histórica com mesa longa, estantes de livros e janelas altas com luz difusa.">
+    </div>
+
+    <div style="position:absolute;left:114px;top:258px;width:1000px">
+      <p class="kicker">Ato I · A pergunta</p>
+      <h1 class="display" style="margin-top:26px">A Ordem<br>e o Palco</h1>
+      <hr class="rule-ink" style="margin:44px 0 30px">
+      <p class="lead" style="max-width:820px">A maçonaria entre a rede e o poder — 1717 a 1964.</p>
+    </div>
+
+    <div class="card" style="position:absolute;left:114px;bottom:150px;width:620px">
+      <p class="kicker">Tese</p>
+      <p class="big" style="margin-top:16px">Bastidor, sim.<br>Comando, não.</p>
+    </div>
+
+    <div class="foot"><span>A Ordem e o Palco</span><span>01 / 16</span></div>
+  </section>
+
+  <!-- 02 -->
+  <section class="slide" aria-label="Slide 2: a pergunta">
+    <span class="tab">Ato I · A pergunta</span>
+    <span class="meta">02 / 16</span>
+
+    <div class="body">
+      <div class="grid">
+        <div style="grid-column:1 / span 7">
+          <p class="kicker">A pergunta de pesquisa</p>
+          <h2 class="h2" style="margin-top:26px">Uma sociedade<br>discreta explica<br>três séculos<br>de política?</h2>
+          <p class="small" style="margin-top:34px;max-width:620px">A resposta depende de separar três coisas que a lenda costuma somar.</p>
+        </div>
+        <div style="grid-column:9 / span 4;padding-top:6px">
+          <div style="border-top:1px solid var(--line);padding:24px 0 26px">
+            <p class="kicker">Rede</p>
+            <p style="margin-top:12px;font-size:24px;color:var(--graphite-2);line-height:1.35">Onde elites se encontram, negociam e recrutam.</p>
+          </div>
+          <div style="border-top:1px solid var(--line);padding:24px 0 26px">
+            <p class="kicker">Presença</p>
+            <p style="margin-top:12px;font-size:24px;color:var(--graphite-2);line-height:1.35">Densidade de nomes, não direção política.</p>
+          </div>
+          <div style="border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 0 26px">
+            <p class="kicker">Rito</p>
+            <p style="margin-top:12px;font-size:24px;color:var(--graphite-2);line-height:1.35">Linguagem comum, não senha de poder.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot"><span>Infraestrutura ≠ arquitetura</span><span>02 / 16</span></div>
+  </section>
+
+  <!-- 03 -->
+  <section class="slide" aria-label="Slide 3: a escala do fenômeno">
+    <span class="tab">Ato I · A escala</span>
+    <span class="meta">03 / 16</span>
+    <span class="folio" aria-hidden="true">03</span>
+
+    <div class="body">
+      <p class="kicker">Quatro números que resumem o problema</p>
+      <h2 class="h2" style="margin-top:22px;font-size:76px">O peso real da ordem</h2>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);column-gap:40px;margin-top:70px;position:relative;z-index:1">
+        <div>
+          <p class="metric">8–9</p>
+          <p class="small" style="margin-top:22px;max-width:250px">signatários maçons da Declaração de Independência dos EUA, entre 56.</p>
+        </div>
+        <div>
+          <p class="metric">13</p>
+          <p class="small" style="margin-top:22px;max-width:250px">dos 39 que aprovaram a Constituição americana de 1787.</p>
+        </div>
+        <div>
+          <p class="metric">250</p>
+          <p class="small" style="margin-top:22px;max-width:250px">lojas que financiaram o Monumento a Washington.</p>
+        </div>
+        <div>
+          <p class="metric">0</p>
+          <p class="small" style="margin-top:22px;max-width:250px">documentos de um comando central da ordem sobre esses processos.</p>
+        </div>
+      </div>
+
+      <p class="micro" style="position:absolute;bottom:0;left:0;right:0;border-top:1px solid var(--line);padding-top:16px">O quarto número é o mais importante — e o menos citado.</p>
+    </div>
+
+    <div class="foot"><span>A Ordem e o Palco</span><span>03 / 16</span></div>
+  </section>
+
+  <!-- 04 -->
+  <section class="slide" aria-label="Slide 4: eixo político e constitucional">
+    <span class="tab">Ato II · Eixo 01/03</span>
+    <span class="meta">04 / 16</span>
+
+    <div class="body">
+      <p class="kicker">Eixo político e constitucional</p>
+      <h2 class="h2" style="margin-top:20px;font-size:78px">A loja como escola de governo</h2>
+      <p class="small" style="margin-top:18px;max-width:900px">Eleição anual, votação por maioria, representação de oficinas e um texto fundante: as <em>Constituições</em> de Anderson, de 1723.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);column-gap:48px;margin-top:56px">
+        <div style="border-top:2px solid var(--graphite);padding-top:26px">
+          <p class="year">1776</p>
+          <p class="kicker" style="margin-top:14px">Estados Unidos</p>
+          <p style="margin-top:12px;font-size:23px;line-height:1.4;color:var(--graphite-2)">A Constituição de 1787 nasce em ambiente de loja e de sociabilidade maçônica.</p>
+          <p class="micro" style="margin-top:16px">13 dos 39 convencionais</p>
+        </div>
+        <div style="border-top:2px solid var(--graphite);padding-top:26px">
+          <p class="year">1820</p>
+          <p class="kicker" style="margin-top:14px">Portugal</p>
+          <p style="margin-top:12px;font-size:23px;line-height:1.4;color:var(--graphite-2)">O Sinédrio articula a Revolução Liberal do Porto e impõe as Cortes e a Constituição de 1822.</p>
+          <p class="micro" style="margin-top:16px">Maioria maçônica no Sinédrio</p>
+        </div>
+        <div style="border-top:2px solid var(--graphite);padding-top:26px">
+          <p class="year">1822</p>
+          <p class="kicker" style="margin-top:14px">Brasil</p>
+          <p style="margin-top:12px;font-size:23px;line-height:1.4;color:var(--graphite-2)">O Grande Oriente Brasílico é fundado com finalidade política explícita.</p>
+          <p class="micro" style="margin-top:16px">D. Pedro I, Grão-Mestre</p>
+        </div>
+      </div>
+
+      <p class="micro" style="position:absolute;bottom:0;left:0;right:0;border-top:1px solid var(--line);padding-top:16px">Limite: presença não é direção — havia maçons nos dois lados de cada conflito.</p>
+    </div>
+
+    <div class="foot"><span>A Ordem e o Palco</span><span>04 / 16</span></div>
+  </section>
+
+  <!-- 05 -->
+  <section class="slide" aria-label="Slide 5: eixo social e associativo">
+    <span class="tab">Ato II · Eixo 02/03</span>
+    <span class="meta">05 / 16</span>
+
+    <div class="body">
+      <div class="grid">
+        <div style="grid-column:1 / span 6">
+          <div class="ph" style="height:84%">
+            <img src="img/sociabilidade.jpg" alt="Livro-razão de couro aberto sobre mesa de madeira, com tinteiro e caneta, sob luz de janela.">
+          </div>
+          <span class="cap">Livro de socorros mútuos, séc. XIX · fotografia editorial</span>
+        </div>
+        <div style="grid-column:8 / span 5;padding-top:4px">
+          <p class="kicker">Eixo social e associativo</p>
+          <h2 class="h2" style="margin-top:20px;font-size:64px">A associação<br>antes da política</h2>
+          <ul class="list" style="margin-top:34px">
+            <li><span class="micro" style="font-weight:600;color:#111">01</span><div><div class="t">Mutualismo</div><div class="d">Socorro, escolas, bibliotecas, órfãos.</div></div></li>
+            <li><span class="micro" style="font-weight:600;color:#111">02</span><div><div class="t">Abolicionismo</div><div class="d">1871, 1885, 1888.</div></div></li>
+            <li><span class="micro" style="font-weight:600;color:#111">03</span><div><div class="t">Recrutamento</div><div class="d">A oficialidade como viveiro de lojas.</div></div></li>
+            <li><span class="micro" style="font-weight:600;color:#111">04</span><div><div class="t">Conservadorismo</div><div class="d">A mesma rede apoia o golpe de 1964.</div></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot"><span>A Ordem e o Palco</span><span>05 / 16</span></div>
+  </section>
+
+  <!-- 06 -->
+  <section class="slide" aria-label="Slide 6: eixo cultural e de imprensa">
+    <span class="tab">Ato II · Eixo 03/03</span>
+    <span class="meta">06 / 16</span>
+
+    <div class="body">
+      <div class="grid">
+        <div style="grid-column:1 / span 8">
+          <p class="kicker">Eixo cultural, simbólico e de imprensa</p>
+          <h2 class="h2" style="margin-top:20px;font-size:78px">Quatro máquinas<br>de opinião</h2>
+
+          <div style="margin-top:44px">
+            <div style="display:grid;grid-template-columns:150px 1fr;column-gap:32px;border-top:1px solid var(--line);padding:20px 0">
+              <p class="year" style="font-size:44px">1734</p>
+              <div><p class="t" style="font-size:24px;font-weight:600;color:#111">Filadélfia · Franklin imprime as <em>Constituições</em></p><p class="micro" style="margin-top:5px">A imprensa passa a difundir o texto fundante da ordem.</p></div>
+            </div>
+            <div style="display:grid;grid-template-columns:150px 1fr;column-gap:32px;border-top:1px solid var(--line);padding:20px 0">
+              <p class="year" style="font-size:44px">1847</p>
+              <div><p class="t" style="font-size:24px;font-weight:600;color:#111">Turim · <em>Il Risorgimento</em>, de Cavour</p><p class="micro" style="margin-top:5px">Jornal que dá nome e voz à unificação italiana.</p></div>
+            </div>
+            <div style="display:grid;grid-template-columns:150px 1fr;column-gap:32px;border-top:1px solid var(--line);padding:20px 0">
+              <p class="year" style="font-size:44px">1870</p>
+              <div><p class="t" style="font-size:24px;font-weight:600;color:#111">Rio de Janeiro · <em>A República</em>, de Quintino</p><p class="micro" style="margin-top:5px">O manifesto republicano e a campanha que levaria a 1889.</p></div>
+            </div>
+            <div style="display:grid;grid-template-columns:150px 1fr;column-gap:32px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0">
+              <p class="year" style="font-size:44px">1887</p>
+              <div><p class="t" style="font-size:24px;font-weight:600;color:#111">Rio de Janeiro · <em>A Cidade do Rio</em>, de Patrocínio</p><p class="micro" style="margin-top:5px">A tribuna diária da abolição.</p></div>
+            </div>
+          </div>
+        </div>
+        <div style="grid-column:10 / span 3;align-self:end">
+          <div class="ph" style="height:420px">
+            <img src="img/imprensa.jpg" alt="Detalhe de oficina tipográfica com prensa de ferro e caixas de tipos.">
+          </div>
+          <span class="cap">Tipografia, séc. XIX</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot"><span>A Ordem e o Palco</span><span>06 / 16</span></div>
+  </section>
+
+  <!-- 07 -->
+  <section class="slide" aria-label="Slide 7: método e graus de evidência">
+    <span class="tab">Ato III · Prova</span>
+    <span class="meta">07 / 16</span>
+
+    <div class="body">
+      <p class="kicker">Método</p>
+      <h2 class="h2" style="margin-top:20px;font-size:76px">Quatro graus de evidência</h2>
+      <p class="small" style="margin-top:18px;max-width:860px">Cada afirmação do estudo recebe uma letra. A letra viaja com a afirmação — inclusive quando ela é desconfortável para a ordem.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);column-gap:44px;margin-top:74px">
+        <div style="border-top:2px solid var(--graphite);padding-top:24px">
+          <p style="font-size:96px;font-weight:700;letter-spacing:-.05em;line-height:1">A</p>
+          <p class="h3" style="font-size:26px;margin-top:14px">Documento primário</p>
+          <p class="micro" style="margin-top:8px">Ata, registro institucional, relatório oficial.</p>
+        </div>
+        <div style="border-top:2px solid var(--graphite);padding-top:24px">
+          <p style="font-size:96px;font-weight:700;letter-spacing:-.05em;line-height:1">B</p>
+          <p class="h3" style="font-size:26px;margin-top:14px">Historiografia</p>
+          <p class="micro" style="margin-top:8px">Interpretação consolidada, com base documental.</p>
+        </div>
+        <div style="border-top:1px solid var(--line);padding-top:24px">
+          <p style="font-size:96px;font-weight:700;letter-spacing:-.05em;line-height:1">C</p>
+          <p class="h3" style="font-size:26px;margin-top:14px">Indício</p>
+          <p class="micro" style="margin-top:8px">Interpretação plausível, sem prova direta.</p>
+        </div>
+        <div style="border-top:1px solid var(--line);padding-top:24px">
+          <p style="font-size:96px;font-weight:700;letter-spacing:-.05em;line-height:1">D</p>
+          <p class="h3" style="font-size:26px;margin-top:14px">Lenda</p>
+          <p class="micro" style="margin-top:8px">Tradição interna ou narrativa conspiratória.</p>
+        </div>
+      </div>
+
+      <p class="micro" style="position:absolute;bottom:0;left:0;right:0;border-top:1px solid var(--line);padding-top:16px">Regra de ouro: número de maçons em um evento não prova direção maçônica — prova densidade de rede.</p>
+    </div>
+
+    <div class="foot"><span>A Ordem e o Palco</span><span>07 / 16</span></div>
+  </section>
+
+  <!-- 08 -->
+  <section class="slide" aria-label="Slide 8: cronologia em três atos">
+    <span class="tab">Ato III · Prova</span>
+    <span class="meta">08 / 16</span>
+
+    <div class="body">
+      <p class="kicker">Cronologia</p>
+      <h2 class="h2" style="margin-top:20px;font-size:76px">Três atos, doze marcos</h2>
+
+      <div style="margin-top:34px">
+        <div class="act-row">
+          <div class="act-label"><p class="a">Ato 1</p><p class="y">1717–1789</p></div>
+          <div class="ms"><p class="y">1717</p><p class="n">Grande Loja de Londres</p><p class="d">Nasce a maçonaria especulativa.</p></div>
+          <div class="ms"><p class="y">1734</p><p class="n">Franklin publica Anderson</p><p class="d">A imprensa entra na ordem.</p></div>
+          <div class="ms"><p class="y">1776</p><p class="n">Independência dos EUA</p><p class="d">8 ou 9 dos 56 signatários.</p></div>
+          <div class="ms"><p class="y">1789</p><p class="n">Revolução Francesa</p><p class="d">Lojas como caixa de ressonância.</p></div>
+        </div>
+
+        <div class="act-row">
+          <div class="act-label"><p class="a">Ato 2</p><p class="y">1810–1859</p></div>
+          <div class="ms"><p class="y">1810</p><p class="n">Carbonária</p><p class="d">Nápoles; projeto nacional italiano.</p></div>
+          <div class="ms"><p class="y">1812</p><p class="n">Logia Lautaro</p><p class="d">Sociedade política, não loja regular.</p></div>
+          <div class="ms"><p class="y">1820</p><p class="n">Revolução do Porto</p><p class="d">O Sinédrio impõe as Cortes.</p></div>
+          <div class="ms"><p class="y">1822</p><p class="n">Independência do Brasil</p><p class="d">Grande Oriente Brasílico.</p></div>
+        </div>
+
+        <div class="act-row">
+          <div class="act-label"><p class="a">Ato 3</p><p class="y">1871–1964</p></div>
+          <div class="ms"><p class="y">1871</p><p class="n">Lei do Ventre Livre</p><p class="d">Rio Branco, Grão-Mestre.</p></div>
+          <div class="ms"><p class="y">1884</p><p class="n">Pedra da Liberdade</p><p class="d">Cerimônia maçônica em Nova York.</p></div>
+          <div class="ms"><p class="y">1889</p><p class="n">Proclamação da República</p><p class="d">Reunião em casa de Benjamin Constant.</p></div>
+          <div class="ms"><p class="y">1964</p><p class="n">Golpe militar</p><p class="d">Maioria dos maçons apoiou.</p></div>
+        </div>
+      </div>
+
+      <p class="micro" style="position:absolute;bottom:0;left:0;right:0">Fora do recorte: 1797 Gran Reunión · 1821 México · 1835 Farroupilha · 1890 separação Igreja–Estado · 1908–10 Portugal.</p>
+    </div>
+
+    <div class="foot"><span>A Ordem e o Palco</span><span>08 / 16</span></div>
+  </section>
+
+  <!-- 09 -->
+  <section class="slide" aria-label="Slide 9: personagens, quem era e quem não era">
+    <span class="tab">Ato III · Prova</span>
+    <span class="meta">09 / 16</span>
+
+    <div class="body">
+      <div class="grid">
+        <div style="grid-column:1 / span 6">
+          <p class="kicker">Filiação documentada</p>
+          <h2 class="h2" style="margin-top:18px;font-size:56px">Quem era</h2>
+          <p style="margin-top:30px;font-size:26px;line-height:1.75;color:var(--graphite-2)">
+            George Washington · Benjamin Franklin<br>
+            Lafayette · John Paul Jones<br>
+            Simón Bolívar<br>
+            José Bonifácio · Gonçalves Ledo<br>
+            D. Pedro I · Visconde do Rio Branco<br>
+            Deodoro da Fonseca · Giuseppe Garibaldi
+          </p>
+        </div>
+        <div style="grid-column:8 / span 5;border-left:1px solid var(--line);padding-left:56px">
+          <p class="kicker">Sem prova ou negada</p>
+          <h2 class="h2" style="margin-top:18px;font-size:56px">Quem não era</h2>
+          <p style="margin-top:30px;font-size:26px;line-height:1.75;color:var(--graphite-2)">
+            Thomas Jefferson<br>
+            Danton e Robespierre<br>
+            Tiradentes<br>
+            San Martín e O’Higgins<br>
+            <span style="color:#666B73">(Lautaro: sociedade política)</span><br>
+            Rui Barbosa <span style="color:#666B73">(contestado)</span>
+          </p>
+        </div>
+      </div>
+
+      <p class="micro" style="position:absolute;bottom:0;left:0;right:0;border-top:1px solid var(--line);padding-top:16px">A lista da esquerda é curta e verificável. A da direita é o que a lenda acrescenta.</p>
+    </div>
+
+    <div class="foot"><span>A Ordem e o Palco</span><span>09 / 16</span></div>
+  </section>
+
+  <!-- 10 -->
+  <section class="slide" aria-label="Slide 10: o negativo da prova">
+    <span class="tab">Ato III · Prova</span>
+    <span class="meta">10 / 16</span>
+
+    <div class="body">
+      <div class="grid">
+        <div style="grid-column:1 / span 8">
+          <p class="kicker">O negativo da prova</p>
+          <h2 class="h2" style="margin-top:18px;font-size:66px">A lenda é mais forte<br>onde a prova é mais fraca</h2>
+
+          <table class="tbl" style="margin-top:30px" aria-label="O que se diz e o que se sabe">
+            <tbody>
+              <tr><td>“50 dos 56 signatários”</td><td>8 ou 9 comprovados</td></tr>
+              <tr><td>“O olho na pirâmide é maçônico”</td><td>Iconografia cristã, projeto de 1782</td></tr>
+              <tr><td>“Tiradentes era maçom”</td><td>Nenhum documento; 1ª loja no Rio em 1801</td></tr>
+              <tr><td>“Lautaro era uma loja”</td><td>Sociedade política, sem vínculo regular</td></tr>
+              <tr><td>“A Marselhesa nasceu na loja”</td><td>Versão repetida, sem prova</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="grid-column:10 / span 3;align-self:end;padding-bottom:6px">
+          <div class="card" style="padding:40px 36px">
+            <p class="kicker">Regra de ouro</p>
+            <p class="big" style="margin-top:14px;font-size:34px">Presença não prova direção.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot"><span>A Ordem e o Palco</span><span>10 / 16</span></div>
+  </section>
+
+  <!-- 11 -->
+  <section class="slide" aria-label="Slide 11: Grande Selo e a nota de 1 dólar">
+    <span class="tab">Ato III · Prova</span>
+    <span class="meta">11 / 16</span>
+
+    <div style="position:absolute;left:114px;top:212px;width:1200px">
+      <p class="kicker">Grande Selo dos EUA · nota de 1 dólar</p>
+      <div style="display:flex;align-items:flex-end;gap:44px;margin-top:18px">
+        <p class="metric" style="font-size:180px">1935</p>
+        <div style="padding-bottom:14px">
+          <h2 class="h2" style="font-size:62px">O selo entra no dólar</h2>
+          <p class="small" style="margin-top:12px;max-width:520px">Cento e cinquenta e três anos depois de ser desenhado — e sem relação com ritual maçônico.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="position:absolute;left:114px;bottom:470px;display:flex;gap:70px;width:1240px">
+      <div><p class="micro" style="font-weight:600;color:#111">1782</p><p class="micro" style="margin-top:6px">Projetistas finais não eram maçons.</p></div>
+      <div><p class="micro" style="font-weight:600;color:#111">1776</p><p class="micro" style="margin-top:6px">Olho sugerido por Du Simitière, não maçom.</p></div>
+      <div><p class="micro" style="font-weight:600;color:#111">1935</p><p class="micro" style="margin-top:6px">Roosevelt e Wallace, ambos de 32º, escolhem o selo.</p></div>
+    </div>
+
+    <div class="ph" style="position:absolute;left:0;right:0;bottom:96px;height:29%">
+      <img src="img/selo.jpg" alt="Macro de placa de aço gravada e linhas impressas em papel, sem letras legíveis.">
+    </div>
+
+    <div class="foot"><span>A Ordem e o Palco</span><span>11 / 16</span></div>
+  </section>
+
+  <!-- 12 -->
+  <section class="slide" aria-label="Slide 12: monumentos e pedra fundamental">
+    <span class="tab">Ato III · Prova</span>
+    <span class="meta">12 / 16</span>
+
+    <div class="body">
+      <p class="kicker">Monumentos</p>
+      <h2 class="h2" style="margin-top:18px;font-size:66px">Pedra fundamental não é código</h2>
+      <p class="small" style="margin-top:16px;max-width:980px">O rito público de lançamento de pedra fundamental foi a forma mais visível — e mais documentada — da presença maçônica na esfera cívica.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;column-gap:48px;margin-top:44px">
+        <figure style="margin:0">
+          <div class="ph" style="height:300px"><img src="img/washington.jpg" alt="Obelisco do Monumento a Washington ao entardecer."></div>
+          <figcaption style="margin-top:14px">
+            <p class="small" style="color:#111;font-weight:600">1848 · Monumento a Washington</p>
+            <p class="micro" style="margin-top:5px">Pedra fundamental em rito maçônico, com o presidente Polk presente; 22 pedras maçônicas no interior; 250 lojas doadoras.</p>
+          </figcaption>
+        </figure>
+        <figure style="margin:0">
+          <div class="ph" style="height:300px"><img src="img/liberdade.jpg" alt="Estátua da Liberdade vista em ângulo baixo contra céu claro."></div>
+          <figcaption style="margin-top:14px">
+            <p class="small" style="color:#111;font-weight:600">1884 · Estátua da Liberdade</p>
+            <p class="micro" style="margin-top:5px">Bartholdi, da Loja Alsácia-Lorena; o pedestal é lançado em cerimônia maçônica pelo Grão-Mestre de Nova York.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="foot"><span>A Ordem e o Palco</span><span>12 / 16</span></div>
+  </section>
+
+  <!-- 13 -->
+  <section class="slide" aria-label="Slide 13: Praça XV e Paço Imperial">
+    <span class="tab">Ato III · Prova</span>
+    <span class="meta">13 / 16</span>
+
+    <div class="body">
+      <div class="grid">
+        <div style="grid-column:1 / span 7">
+          <div class="ph" style="height:82%">
+            <img src="img/praca.jpg" alt="Praça histórica do Rio de Janeiro com chafariz de pedra, palácio colonial branco e palmeiras sob luz da manhã.">
+          </div>
+          <span class="cap">Praça XV e Paço Imperial, Rio de Janeiro · fotografia editorial</span>
+        </div>
+        <div style="grid-column:9 / span 4;padding-top:2px">
+          <p class="kicker">Brasil · marcos cívicos</p>
+          <h2 class="h2" style="margin-top:18px;font-size:56px">O palco<br>também é deles</h2>
+          <div style="margin-top:34px">
+            <div style="border-top:1px solid var(--line);padding:18px 0"><p class="year" style="font-size:36px">1822</p><p class="micro" style="margin-top:6px">Dia do Fico, no Paço Imperial.</p></div>
+            <div style="border-top:1px solid var(--line);padding:18px 0"><p class="year" style="font-size:36px">1822</p><p class="micro" style="margin-top:6px">Aclamação de D. Pedro I.</p></div>
+            <div style="border-top:1px solid var(--line);padding:18px 0"><p class="year" style="font-size:36px">1888</p><p class="micro" style="margin-top:6px">Lei Áurea, da varanda do Paço.</p></div>
+          </div>
+          <div class="card" style="margin-top:22px;padding:30px 30px">
+            <p class="kicker">Fora da praça</p>
+            <p class="micro" style="margin-top:8px;color:#E6E8EC">O Palácio do Lavradio foi sede do Grande Oriente do Brasil de 1842 a 1978.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot"><span>A Ordem e o Palco</span><span>13 / 16</span></div>
+  </section>
+
+  <!-- 14 -->
+  <section class="slide" aria-label="Slide 14: sete mecanismos de bastidor">
+    <span class="tab">Ato IV · Resposta</span>
+    <span class="meta">14 / 16</span>
+    <span class="folio" aria-hidden="true">07</span>
+
+    <div class="body">
+      <p class="kicker">A resposta</p>
+      <h2 class="h2" style="margin-top:20px;font-size:76px">Sete mecanismos de bastidor</h2>
+
+      <div class="cells" style="margin-top:56px;position:relative;z-index:1">
+        <div class="cell"><p class="k">01</p><p class="n">Correspondência</p><p class="d">Cartas e recomendações entre lojas e países.</p></div>
+        <div class="cell"><p class="k">02</p><p class="n">Neutralidade interna</p><p class="d">Adversários sob regras comuns.</p></div>
+        <div class="cell"><p class="k">03</p><p class="n">Sigilo e juramento</p><p class="d">Baixo custo de coordenação.</p></div>
+        <div class="cell"><p class="k">04</p><p class="n">Mobilidade</p><p class="d">Lojas militares e marítimas.</p></div>
+        <div class="cell"><p class="k">05</p><p class="n">Mutualismo</p><p class="d">Lealdade e recrutamento duradouros.</p></div>
+        <div class="cell"><p class="k">06</p><p class="n">Imprensa</p><p class="d">Voz pública coordenada.</p></div>
+        <div class="cell"><p class="k">07</p><p class="n">Liturgia cívica</p><p class="d">Poder traduzido em símbolo.</p></div>
+      </div>
+    </div>
+
+    <div class="foot"><span>A Ordem e o Palco</span><span>14 / 16</span></div>
+  </section>
+
+  <!-- 15 -->
+  <section class="slide" aria-label="Slide 15: cinco limites">
+    <span class="tab">Ato IV · Resposta</span>
+    <span class="meta">15 / 16</span>
+
+    <div class="body">
+      <p class="kicker">A resposta</p>
+      <h2 class="h2" style="margin-top:20px;font-size:76px">Cinco limites que a lenda ignora</h2>
+
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);column-gap:36px;margin-top:66px">
+        <div style="border-top:2px solid var(--graphite);padding-top:22px">
+          <p class="k">01</p>
+          <p class="n" style="font-size:26px;font-weight:600;margin-top:10px;line-height:1.2">Sem comando único</p>
+          <p class="micro" style="margin-top:8px">Cisões permanentes: Apostolado, Passeio, Yorkinos.</p>
+        </div>
+        <div style="border-top:2px solid var(--graphite);padding-top:22px">
+          <p class="k">02</p>
+          <p class="n" style="font-size:26px;font-weight:600;margin-top:10px;line-height:1.2">Maçons contra maçons</p>
+          <p class="micro" style="margin-top:8px">Monarquistas e republicanos; os dois lados.</p>
+        </div>
+        <div style="border-top:1px solid var(--line);padding-top:22px">
+          <p class="k">03</p>
+          <p class="n" style="font-size:26px;font-weight:600;margin-top:10px;line-height:1.2">Perseguição</p>
+          <p class="micro" style="margin-top:8px">Alvarás, fechamentos e bulas papais.</p>
+        </div>
+        <div style="border-top:1px solid var(--line);padding-top:22px">
+          <p class="k">04</p>
+          <p class="n" style="font-size:26px;font-weight:600;margin-top:10px;line-height:1.2">Captura pelo Estado</p>
+          <p class="micro" style="margin-top:8px">Napoleão, Porfirio Díaz, 1964.</p>
+        </div>
+        <div style="border-top:1px solid var(--line);padding-top:22px">
+          <p class="k">05</p>
+          <p class="n" style="font-size:26px;font-weight:600;margin-top:10px;line-height:1.2">O palco decidia</p>
+          <p class="micro" style="margin-top:8px">Diplomacia e guerra, não ritual.</p>
+        </div>
+      </div>
+
+      <p class="micro" style="position:absolute;bottom:0;left:0;right:0;border-top:1px solid var(--line);padding-top:16px">E, no entanto, a ordem nunca foi irrelevante: foi o lugar onde as elites aprenderam a se organizar.</p>
+    </div>
+
+    <div class="foot"><span>A Ordem e o Palco</span><span>15 / 16</span></div>
+  </section>
+
+  <!-- 16 -->
+  <section class="slide" aria-label="Slide 16: conclusão">
+    <span class="tab">Ato IV · Resposta</span>
+    <span class="meta">16 / 16</span>
+
+    <div style="position:absolute;left:114px;top:240px;width:1100px">
+      <p class="kicker">Conclusão</p>
+      <h1 class="display" style="margin-top:24px">Rede,<br>não arquitetura.</h1>
+      <hr class="rule-ink" style="margin:42px 0 28px">
+      <p class="lead" style="max-width:780px">A ordem produziu confiança, circulação de informação e repertório simbólico — não uma engenharia de poder.</p>
+    </div>
+
+    <div class="card" style="position:absolute;right:114px;top:262px;width:480px">
+      <p class="kicker">O estudo em números</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:34px 26px;margin-top:24px">
+        <div><p style="font-size:64px;font-weight:700;color:#fff;letter-spacing:-.04em;line-height:1">4</p><p class="micro" style="margin-top:6px">atos</p></div>
+        <div><p style="font-size:64px;font-weight:700;color:#fff;letter-spacing:-.04em;line-height:1">12</p><p class="micro" style="margin-top:6px">marcos</p></div>
+        <div><p style="font-size:64px;font-weight:700;color:#fff;letter-spacing:-.04em;line-height:1">12</p><p class="micro" style="margin-top:6px">mitos testados</p></div>
+        <div><p style="font-size:64px;font-weight:700;color:#fff;letter-spacing:-.04em;line-height:1">38</p><p class="micro" style="margin-top:6px">fontes</p></div>
+      </div>
+    </div>
+
+    <p class="micro" style="position:absolute;left:114px;bottom:120px;width:900px">Fontes completas, com link e grau de evidência, no relatório <em>A maçonaria nos bastidores — ou não?</em></p>
+
+    <div class="foot"><span>A Ordem e o Palco</span><span>16 / 16</span></div>
+  </section>
+
+</main>
+
+<div class="hint" id="hint">← → para navegar · P para imprimir</div>
+<div class="ui" role="group" aria-label="Controles da apresentação">
+  <button type="button" id="prev" aria-label="Slide anterior">← Anterior</button>
+  <button type="button" id="next" aria-label="Próximo slide">Próximo →</button>
+  <button type="button" id="print" aria-label="Imprimir ou exportar em PDF">PDF</button>
+</div>
+<p class="sr" id="live" aria-live="polite"></p>
+
+<script>
+(function(){
+  const stage = document.getElementById('stage');
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const live = document.getElementById('live');
+  const hint = document.getElementById('hint');
+  let index = 0;
+
+  function fit(){
+    const pad = 64;
+    const s = Math.min((window.innerWidth - pad) / 1920, (window.innerHeight - pad - 64) / 1080);
+    stage.style.transform = 'scale(' + Math.max(0.22, s) + ')';
+  }
+  window.addEventListener('resize', fit); fit();
+
+  function show(i, push){
+    index = Math.max(0, Math.min(slides.length - 1, i));
+    slides.forEach((s, k) => {
+      s.classList.toggle('is-active', k === index);
+      s.setAttribute('aria-hidden', k === index ? 'false' : 'true');
+    });
+    live.textContent = 'Slide ' + (index + 1) + ' de ' + slides.length;
+    if (push !== false) history.replaceState(null, '', '#' + (index + 1));
+    document.title = 'Slide ' + (index + 1) + '/16 · A Ordem e o Palco';
+    hint.classList.add('is-hidden');
+  }
+  const next = () => show(index + 1);
+  const prev = () => show(index - 1);
+
+  document.getElementById('next').addEventListener('click', next);
+  document.getElementById('prev').addEventListener('click', prev);
+  document.getElementById('print').addEventListener('click', () => window.print());
+
+  document.addEventListener('keydown', (e) => {
+    if (['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){ e.preventDefault(); next(); }
+    else if (['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){ e.preventDefault(); prev(); }
+    else if (e.key === 'Home'){ e.preventDefault(); show(0); }
+    else if (e.key === 'End'){ e.preventDefault(); show(slides.length - 1); }
+    else if (e.key.toLowerCase() === 'p' && !e.metaKey && !e.ctrlKey){ e.preventDefault(); window.print(); }
+  });
+
+  const start = parseInt((location.hash || '').replace('#',''), 10);
+  show(Number.isFinite(start) && start > 0 ? start - 1 : 0, false);
+  setTimeout(() => hint.classList.add('is-hidden'), 6000);
+})();
+</script>
+</body>
+</html>

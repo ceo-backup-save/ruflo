@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A Ordem e o Palco · 16 slides · 1920×1080</title>
 <meta name="description" content="Nova apresentação sobre a maçonaria entre a rede e o poder (1717–1964). Escala Full HD 1920×1080, design system Minimal Editorial Mono.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  @font-face{font-family:'Inter';src:url('fonts/inter-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+  @font-face{font-family:'Inter';src:url('fonts/inter-latin-500-normal.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+  @font-face{font-family:'Inter';src:url('fonts/inter-latin-600-normal.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+  @font-face{font-family:'Inter';src:url('fonts/inter-latin-700-normal.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
   :root{
     --white:#FFFFFF;
     --ink:#111111;
@@ -39,7 +40,7 @@
   .lead{font-size:34px;line-height:1.4;color:var(--graphite-2)}
   .small{font-size:19px;line-height:1.48;color:var(--body)}
   .micro{font-size:16px;line-height:1.4;color:var(--body)}
-  .metric{font-size:208px;line-height:.84;letter-spacing:-.05em;font-weight:700;margin:0;font-variant-numeric:tabular-nums}
+  .metric{color:var(--ink);font-size:208px;line-height:.84;letter-spacing:-.05em;font-weight:700;margin:0;font-variant-numeric:tabular-nums}
   .year{font-size:72px;line-height:1;letter-spacing:-.04em;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
 
   .body{position:absolute;inset:212px 114px 140px}
@@ -70,8 +71,8 @@
   .card .big{font-size:44px;line-height:1.12;letter-spacing:-.025em;font-weight:600;color:#fff}
 
   .folio{
-    position:absolute;right:96px;bottom:96px;
-    font-size:300px;line-height:.8;font-weight:700;letter-spacing:-.05em;
+    position:absolute;right:114px;top:150px;
+    font-size:190px;line-height:.8;font-weight:700;letter-spacing:-.05em;
     color:var(--line);z-index:0;pointer-events:none;font-variant-numeric:tabular-nums;
   }
 
@@ -124,6 +125,7 @@
     body{display:block;background:#fff;overflow:visible}
     .stage{transform:none!important;width:1920px;height:auto}
     .slide{display:block!important;position:relative;width:1920px;height:1080px;break-after:page;page-break-after:always}
+    main.stage > .slide:last-child{break-after:auto;page-break-after:auto}
     .ui,.hint{display:none!important}
   }
 </style>
@@ -147,7 +149,7 @@
   <!-- 01 -->
   <section class="slide is-active" aria-label="Slide 1: capa">
     <span class="tab">Estudo · 2026</span>
-    <span class="meta">16 slides · 4 atos</span>
+    <span class="meta" style="left:114px;right:auto;top:66px">16 slides · 4 atos</span>
 
     <div class="ph" style="position:absolute;top:0;right:0;width:40%;height:92%">
       <img src="img/hero.jpg" alt="Sala de arquivo histórica com mesa longa, estantes de livros e janelas altas com luz difusa.">
@@ -171,7 +173,6 @@
   <!-- 02 -->
   <section class="slide" aria-label="Slide 2: a pergunta">
     <span class="tab">Ato I · A pergunta</span>
-    <span class="meta">02 / 16</span>
 
     <div class="body">
       <div class="grid">
@@ -203,7 +204,6 @@
   <!-- 03 -->
   <section class="slide" aria-label="Slide 3: a escala do fenômeno">
     <span class="tab">Ato I · A escala</span>
-    <span class="meta">03 / 16</span>
     <span class="folio" aria-hidden="true">03</span>
 
     <div class="body">
@@ -238,7 +238,6 @@
   <!-- 04 -->
   <section class="slide" aria-label="Slide 4: eixo político e constitucional">
     <span class="tab">Ato II · Eixo 01/03</span>
-    <span class="meta">04 / 16</span>
 
     <div class="body">
       <p class="kicker">Eixo político e constitucional</p>
@@ -275,7 +274,6 @@
   <!-- 05 -->
   <section class="slide" aria-label="Slide 5: eixo social e associativo">
     <span class="tab">Ato II · Eixo 02/03</span>
-    <span class="meta">05 / 16</span>
 
     <div class="body">
       <div class="grid">
@@ -304,7 +302,6 @@
   <!-- 06 -->
   <section class="slide" aria-label="Slide 6: eixo cultural e de imprensa">
     <span class="tab">Ato II · Eixo 03/03</span>
-    <span class="meta">06 / 16</span>
 
     <div class="body">
       <div class="grid">
@@ -346,7 +343,6 @@
   <!-- 07 -->
   <section class="slide" aria-label="Slide 7: método e graus de evidência">
     <span class="tab">Ato III · Prova</span>
-    <span class="meta">07 / 16</span>
 
     <div class="body">
       <p class="kicker">Método</p>
@@ -355,22 +351,22 @@
 
       <div style="display:grid;grid-template-columns:repeat(4,1fr);column-gap:44px;margin-top:74px">
         <div style="border-top:2px solid var(--graphite);padding-top:24px">
-          <p style="font-size:96px;font-weight:700;letter-spacing:-.05em;line-height:1">A</p>
+          <p style="color:var(--ink);font-size:96px;font-weight:700;letter-spacing:-.05em;line-height:1">A</p>
           <p class="h3" style="font-size:26px;margin-top:14px">Documento primário</p>
           <p class="micro" style="margin-top:8px">Ata, registro institucional, relatório oficial.</p>
         </div>
         <div style="border-top:2px solid var(--graphite);padding-top:24px">
-          <p style="font-size:96px;font-weight:700;letter-spacing:-.05em;line-height:1">B</p>
+          <p style="color:var(--ink);font-size:96px;font-weight:700;letter-spacing:-.05em;line-height:1">B</p>
           <p class="h3" style="font-size:26px;margin-top:14px">Historiografia</p>
           <p class="micro" style="margin-top:8px">Interpretação consolidada, com base documental.</p>
         </div>
         <div style="border-top:1px solid var(--line);padding-top:24px">
-          <p style="font-size:96px;font-weight:700;letter-spacing:-.05em;line-height:1">C</p>
+          <p style="color:var(--ink);font-size:96px;font-weight:700;letter-spacing:-.05em;line-height:1">C</p>
           <p class="h3" style="font-size:26px;margin-top:14px">Indício</p>
           <p class="micro" style="margin-top:8px">Interpretação plausível, sem prova direta.</p>
         </div>
         <div style="border-top:1px solid var(--line);padding-top:24px">
-          <p style="font-size:96px;font-weight:700;letter-spacing:-.05em;line-height:1">D</p>
+          <p style="color:var(--ink);font-size:96px;font-weight:700;letter-spacing:-.05em;line-height:1">D</p>
           <p class="h3" style="font-size:26px;margin-top:14px">Lenda</p>
           <p class="micro" style="margin-top:8px">Tradição interna ou narrativa conspiratória.</p>
         </div>
@@ -385,7 +381,6 @@
   <!-- 08 -->
   <section class="slide" aria-label="Slide 8: cronologia em três atos">
     <span class="tab">Ato III · Prova</span>
-    <span class="meta">08 / 16</span>
 
     <div class="body">
       <p class="kicker">Cronologia</p>
@@ -426,7 +421,6 @@
   <!-- 09 -->
   <section class="slide" aria-label="Slide 9: personagens, quem era e quem não era">
     <span class="tab">Ato III · Prova</span>
-    <span class="meta">09 / 16</span>
 
     <div class="body">
       <div class="grid">
@@ -465,7 +459,6 @@
   <!-- 10 -->
   <section class="slide" aria-label="Slide 10: o negativo da prova">
     <span class="tab">Ato III · Prova</span>
-    <span class="meta">10 / 16</span>
 
     <div class="body">
       <div class="grid">
@@ -498,7 +491,6 @@
   <!-- 11 -->
   <section class="slide" aria-label="Slide 11: Grande Selo e a nota de 1 dólar">
     <span class="tab">Ato III · Prova</span>
-    <span class="meta">11 / 16</span>
 
     <div style="position:absolute;left:114px;top:212px;width:1200px">
       <p class="kicker">Grande Selo dos EUA · nota de 1 dólar</p>
@@ -511,13 +503,13 @@
       </div>
     </div>
 
-    <div style="position:absolute;left:114px;bottom:470px;display:flex;gap:70px;width:1240px">
+    <div style="position:absolute;left:114px;bottom:500px;display:flex;gap:70px;width:1240px">
       <div><p class="micro" style="font-weight:600;color:#111">1782</p><p class="micro" style="margin-top:6px">Projetistas finais não eram maçons.</p></div>
       <div><p class="micro" style="font-weight:600;color:#111">1776</p><p class="micro" style="margin-top:6px">Olho sugerido por Du Simitière, não maçom.</p></div>
       <div><p class="micro" style="font-weight:600;color:#111">1935</p><p class="micro" style="margin-top:6px">Roosevelt e Wallace, ambos de 32º, escolhem o selo.</p></div>
     </div>
 
-    <div class="ph" style="position:absolute;left:0;right:0;bottom:96px;height:29%">
+    <div class="ph" style="position:absolute;left:0;right:0;bottom:96px;height:31%">
       <img src="img/selo.jpg" alt="Macro de placa de aço gravada e linhas impressas em papel, sem letras legíveis.">
     </div>
 
@@ -527,7 +519,6 @@
   <!-- 12 -->
   <section class="slide" aria-label="Slide 12: monumentos e pedra fundamental">
     <span class="tab">Ato III · Prova</span>
-    <span class="meta">12 / 16</span>
 
     <div class="body">
       <p class="kicker">Monumentos</p>
@@ -536,7 +527,7 @@
 
       <div style="display:grid;grid-template-columns:1fr 1fr;column-gap:48px;margin-top:44px">
         <figure style="margin:0">
-          <div class="ph" style="height:300px"><img src="img/washington.jpg" alt="Obelisco do Monumento a Washington ao entardecer."></div>
+          <div class="ph" style="height:300px"><img src="img/washington.jpg" style="object-position:center 60%" alt="Obelisco do Monumento a Washington visto do Tidal Basin, ao amanhecer."></div>
           <figcaption style="margin-top:14px">
             <p class="small" style="color:#111;font-weight:600">1848 · Monumento a Washington</p>
             <p class="micro" style="margin-top:5px">Pedra fundamental em rito maçônico, com o presidente Polk presente; 22 pedras maçônicas no interior; 250 lojas doadoras.</p>
@@ -558,12 +549,11 @@
   <!-- 13 -->
   <section class="slide" aria-label="Slide 13: Praça XV e Paço Imperial">
     <span class="tab">Ato III · Prova</span>
-    <span class="meta">13 / 16</span>
 
     <div class="body">
       <div class="grid">
         <div style="grid-column:1 / span 7">
-          <div class="ph" style="height:82%">
+          <div class="ph" style="height:86%">
             <img src="img/praca.jpg" alt="Praça histórica do Rio de Janeiro com chafariz de pedra, palácio colonial branco e palmeiras sob luz da manhã.">
           </div>
           <span class="cap">Praça XV e Paço Imperial, Rio de Janeiro · fotografia editorial</span>
@@ -590,14 +580,13 @@
   <!-- 14 -->
   <section class="slide" aria-label="Slide 14: sete mecanismos de bastidor">
     <span class="tab">Ato IV · Resposta</span>
-    <span class="meta">14 / 16</span>
     <span class="folio" aria-hidden="true">07</span>
 
     <div class="body">
       <p class="kicker">A resposta</p>
       <h2 class="h2" style="margin-top:20px;font-size:76px">Sete mecanismos de bastidor</h2>
 
-      <div class="cells" style="margin-top:56px;position:relative;z-index:1">
+      <div class="cells" style="margin-top:74px;row-gap:66px;position:relative;z-index:1">
         <div class="cell"><p class="k">01</p><p class="n">Correspondência</p><p class="d">Cartas e recomendações entre lojas e países.</p></div>
         <div class="cell"><p class="k">02</p><p class="n">Neutralidade interna</p><p class="d">Adversários sob regras comuns.</p></div>
         <div class="cell"><p class="k">03</p><p class="n">Sigilo e juramento</p><p class="d">Baixo custo de coordenação.</p></div>
@@ -606,6 +595,8 @@
         <div class="cell"><p class="k">06</p><p class="n">Imprensa</p><p class="d">Voz pública coordenada.</p></div>
         <div class="cell"><p class="k">07</p><p class="n">Liturgia cívica</p><p class="d">Poder traduzido em símbolo.</p></div>
       </div>
+
+      <p class="micro" style="position:absolute;bottom:0;left:0;right:0;border-top:1px solid var(--line);padding-top:16px">Nenhum desses sete mecanismos exige um comando central — é exatamente isso que os torna históricos e não conspiratórios.</p>
     </div>
 
     <div class="foot"><span>A Ordem e o Palco</span><span>14 / 16</span></div>
@@ -614,7 +605,6 @@
   <!-- 15 -->
   <section class="slide" aria-label="Slide 15: cinco limites">
     <span class="tab">Ato IV · Resposta</span>
-    <span class="meta">15 / 16</span>
 
     <div class="body">
       <p class="kicker">A resposta</p>
@@ -657,7 +647,6 @@
   <!-- 16 -->
   <section class="slide" aria-label="Slide 16: conclusão">
     <span class="tab">Ato IV · Resposta</span>
-    <span class="meta">16 / 16</span>
 
     <div style="position:absolute;left:114px;top:240px;width:1100px">
       <p class="kicker">Conclusão</p>

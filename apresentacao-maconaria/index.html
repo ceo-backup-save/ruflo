@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A maçonaria nos bastidores — ou não? · 15 slides</title>
+<meta name="description" content="Apresentação de 15 slides sobre a atuação histórica da maçonaria: três eixos, cronologia, personagens e monumentos, com verificação de evidências.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF;
+    --ink:#111111;
+    --graphite:#1A1A1A;
+    --graphite-2:#2B2B2E;
+    --body:#666B73;
+    --line:#D8DCE3;
+    --sans:"Inter","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    background:#E9EBEF;
+    font-family:var(--sans);
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- palco 16:9 ---------- */
+  .stage{
+    position:relative;
+    width:1280px;height:720px;
+    background:var(--white);
+    transform-origin:center center;
+    flex:0 0 auto;
+  }
+  .slide{
+    position:absolute;inset:0;
+    background:var(--white);
+    padding:54px 76px 44px;
+    display:none;
+    overflow:hidden;
+  }
+  .slide.is-active{display:block}
+
+  /* ---------- tipografia ---------- */
+  .kicker{
+    font-size:10px;line-height:1.2;font-weight:500;
+    letter-spacing:.17em;text-transform:uppercase;color:var(--body);
+  }
+  h1.display{
+    margin:0;font-size:74px;line-height:1.02;letter-spacing:-.03em;font-weight:700;
+  }
+  h2.h2{
+    margin:0;font-size:54px;line-height:1.04;letter-spacing:-.03em;font-weight:700;
+  }
+  h3.h3{
+    margin:0;font-size:21px;line-height:1.2;letter-spacing:-.015em;font-weight:600;
+  }
+  p{margin:0;font-size:15px;line-height:1.52;color:var(--body)}
+  .lead{font-size:19px;line-height:1.45;color:var(--graphite-2)}
+  .small{font-size:10.5px;line-height:1.5;color:var(--body)}
+  .num{font-variant-numeric:tabular-nums}
+  .metric{font-size:118px;line-height:.86;letter-spacing:-.045em;font-weight:700;margin:0}
+
+  /* ---------- estrutura ---------- */
+  .body{position:absolute;inset:112px 76px 74px}
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:16px;height:100%}
+
+  .tab{
+    position:absolute;top:0;left:76px;
+    background:var(--graphite);color:#fff;
+    font-size:9px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+    padding:9px 14px 8px;
+  }
+  .meta{
+    position:absolute;top:22px;right:76px;
+    font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--body);
+  }
+  .foot{
+    position:absolute;left:76px;right:76px;bottom:26px;
+    display:flex;justify-content:space-between;align-items:center;
+    border-top:1px solid var(--line);
+    padding-top:10px;
+    font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--body);
+  }
+  .rule{height:1px;background:var(--line);border:0;margin:0}
+  .rule-ink{width:56px;height:2px;background:var(--graphite);border:0;margin:0}
+
+  /* ---------- fotografia ---------- */
+  .ph{position:relative;overflow:hidden;background:#F2F3F5}
+  .ph img{display:block;width:100%;height:100%;object-fit:cover}
+  .cap{
+    display:block;margin-top:9px;
+    font-size:9.5px;letter-spacing:.05em;color:var(--body);
+  }
+
+  /* ---------- cards ---------- */
+  .card{
+    background:var(--graphite);color:#fff;padding:28px 30px;
+  }
+  .card .kicker{color:#9EA4AC}
+  .card p{color:#C6CAD1}
+  .card .big{
+    font-size:25px;line-height:1.14;letter-spacing:-.02em;font-weight:600;color:#fff;
+  }
+  .card .big em{font-style:normal;color:#fff}
+
+  /* ---------- listas editoriais ---------- */
+  .list{margin:0;padding:0;list-style:none}
+  .list li{
+    border-top:1px solid var(--line);
+    padding:16px 0 15px;
+    display:grid;grid-template-columns:22px 1fr;column-gap:14px;
+  }
+  .list li:last-child{border-bottom:1px solid var(--line)}
+  .list .t{font-size:14px;font-weight:600;letter-spacing:-.005em;color:var(--ink)}
+  .list .d{font-size:12px;line-height:1.45;color:var(--body);margin-top:4px}
+  .ic{width:18px;height:18px;stroke:var(--graphite);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+
+  /* ---------- tabela ---------- */
+  .tbl{width:100%;border-collapse:collapse}
+  .tbl td{
+    border-top:1px solid var(--line);
+    padding:12px 0;
+    vertical-align:top;
+    font-size:12.5px;line-height:1.4;
+  }
+  .tbl tr:last-child td{border-bottom:1px solid var(--line)}
+  .tbl td:first-child{color:var(--ink);font-weight:500;padding-right:18px}
+  .tbl td:last-child{color:var(--body)}
+
+  /* ---------- radial timeline ---------- */
+  .radial{position:relative;width:900px;height:372px;margin:18px auto 0}
+  .arc{
+    position:absolute;left:0;top:0;width:900px;height:250px;
+    border:1px solid var(--line);border-bottom:none;
+    border-radius:450px 450px 0 0 / 250px 250px 0 0;
+  }
+  .dot{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--graphite);transform:translate(-50%,-50%)}
+  .dotn{
+    position:absolute;font-size:9px;font-weight:500;letter-spacing:.14em;color:var(--body);
+    transform:translate(-50%,72%);
+  }
+  .rlabels{
+    position:absolute;top:286px;left:0;width:900px;
+    display:grid;grid-template-columns:repeat(4,1fr);column-gap:20px;
+  }
+  .rlabels .yr{font-size:15px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+  .rlabels .nm{font-size:12.5px;font-weight:600;color:var(--ink);margin-top:5px;line-height:1.25}
+  .rlabels .ds{font-size:10.5px;line-height:1.45;color:var(--body);margin-top:5px}
+
+  /* ---------- controles ---------- */
+  .ui{position:fixed;left:0;right:0;bottom:18px;display:flex;justify-content:center;gap:14px;align-items:center;z-index:20}
+  .ui button{
+    font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+    background:transparent;border:1px solid #C9CDD4;color:#2B2B2E;
+    padding:8px 12px;cursor:pointer;border-radius:0;
+  }
+  .ui button:hover{border-color:#2B2B2E}
+  .ui button:focus-visible{outline:2px solid #1A1A1A;outline-offset:2px}
+  .hint{
+    position:fixed;left:50%;bottom:62px;transform:translateX(-50%);
+    font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#8A9098;
+    transition:opacity .4s ease;z-index:20;pointer-events:none;
+  }
+  .hint.is-hidden{opacity:0}
+  .sr{
+    position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+    clip:rect(0 0 0 0);white-space:nowrap;border:0;
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important}
+  }
+
+  @media print{
+    @page{size:1280px 720px;margin:0}
+    body{display:block;background:#fff;overflow:visible}
+    .stage{transform:none!important;width:1280px;height:auto}
+    .slide{display:block!important;position:relative;width:1280px;height:720px;break-after:page;page-break-after:always}
+    .ui,.hint{display:none!important}
+  }
+</style>
+</head>
+<body>
+
+<!-- ícones monoline -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></symbol>
+    <symbol id="i-column" viewBox="0 0 24 24"><path d="M4 21h16M6 21V7m12 14V7M4 7h16M9 7V3h6v4"/></symbol>
+    <symbol id="i-press" viewBox="0 0 24 24"><rect x="4" y="14" width="16" height="6"/><path d="M7 14V9h10v5M9 9V6h6v3M12 20v-2M9 3h6"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17.5" cy="9" r="2.5"/><path d="M15.5 14.6c3 .4 5 2.8 5 5.4"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c3 3.6 3 12.4 0 16M12 4c-3 3.6-3 12.4 0 16"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M6 21V4m0 0c4-2 8 2 12 0v9c-4 2-8-2-12 0"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5v13a2 2 0 0 1 2-2h14V3H6a2 2 0 0 0-2 2z"/><path d="M4 16a2 2 0 0 1 2-2h14"/><path d="M8 7h8"/></symbol>
+    <symbol id="i-seal" viewBox="0 0 24 24"><circle cx="12" cy="10" r="6"/><path d="M9.5 15.2 8 21h8l-1.5-5.8M9.8 10.2l1.7 1.7 3.2-3.2"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 4v16M7 20h10M3 8h18M7 8l-4 7h8zM17 8l4 7h-8z"/></symbol>
+  </defs>
+</svg>
+
+<main class="stage" id="stage" aria-label="Apresentação: a maçonaria nos bastidores — ou não?">
+
+  <!-- 01 · CAPA -->
+  <section class="slide is-active" id="s1" aria-label="Slide 1: capa">
+    <span class="tab">Relatório de pesquisa · 2026</span>
+    <span class="meta">História · Política · Simbologia</span>
+
+    <div class="ph" style="position:absolute;top:0;right:0;width:44%;height:80%">
+      <img src="img/cover.jpg" alt="Frontão e colunas de mármore de um edifício cívico neoclássico sob luz natural difusa.">
+    </div>
+
+    <div style="position:absolute;left:76px;top:146px;width:600px">
+      <p class="kicker">Apresentação · 15 slides</p>
+      <h1 class="display" style="margin-top:18px">A maçonaria<br>nos bastidores<br>— ou não?</h1>
+      <hr class="rule-ink" style="margin:30px 0 22px">
+      <p class="lead" style="max-width:470px">Três eixos, trinta marcos e doze mitos testados contra as fontes.</p>
+    </div>
+
+    <div class="card" style="position:absolute;left:76px;bottom:86px;width:432px">
+      <p class="kicker">Hipótese de trabalho</p>
+      <p class="big" style="margin-top:10px">Bastidor, sim.<br>Comando, não.</p>
+      <p class="small" style="margin-top:12px;color:#C6CAD1">A ordem como rede de sociabilidade — não como governo secreto.</p>
+    </div>
+
+    <div class="foot"><span>Maçonaria · bastidores ou não?</span><span class="num">01 / 15</span></div>
+  </section>
+
+  <!-- 02 · TESE -->
+  <section class="slide" id="s2" aria-label="Slide 2: tese central">
+    <span class="tab">Tese central</span>
+    <span class="meta">02 / 15</span>
+
+    <div class="body">
+      <div class="grid">
+        <div style="grid-column:1 / span 5;padding-top:14px">
+          <p class="kicker">O que a documentação mostra</p>
+          <hr class="rule-ink" style="margin:18px 0 22px">
+          <h2 class="h2" style="font-size:48px">Bastidor, sim.<br>Comando, não.</h2>
+          <p style="margin-top:20px;max-width:430px">A maçonaria foi uma infraestrutura de sociabilidade, confiança e comunicação das elites liberais. Não um governo secreto com diretriz única.</p>
+          <ul class="list" style="margin-top:18px;max-width:430px">
+            <li><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg><div><div class="t">Canal, não agente</div><div class="d">Onde adversários podiam se encontrar e negociar.</div></div></li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg><div><div class="t">Onipresente, não onipotente</div><div class="d">Incapaz de comandar o palco político.</div></div></li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg><div><div class="t">Dividida entre si</div><div class="d">Maçons dos dois lados em todos os grandes processos.</div></div></li>
+          </ul>
+        </div>
+        <div style="grid-column:7 / span 6">
+          <div class="ph" style="height:78%">
+            <img src="img/assembleia.jpg" alt="Salão legislativo do século XIX vazio, com bancos de madeira curvos e janelas altas.">
+          </div>
+          <p class="cap">Salão de assembleia, século XIX · fotografia editorial</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot"><span>Maçonaria · bastidores ou não?</span><span class="num">02 / 15</span></div>
+  </section>
+
+  <!-- 03 · MÉTODO -->
+  <section class="slide" id="s3" aria-label="Slide 3: método e graus de evidência">
+    <span class="tab">Método</span>
+    <span class="meta">03 / 15</span>
+
+    <div class="body">
+      <div class="grid">
+        <div style="grid-column:1 / span 7">
+          <p class="kicker">Como separar prova de lenda</p>
+          <div style="display:flex;align-items:flex-end;gap:28px;margin-top:14px">
+            <p class="metric">A–D</p>
+            <p class="small" style="max-width:190px;padding-bottom:12px">Quatro graus de evidência aplicados a cada afirmação do relatório.</p>
+          </div>
+          <hr class="rule" style="margin:20px 0 4px">
+          <table class="tbl" aria-label="Graus de evidência">
+            <tbody>
+              <tr><td>A</td><td>Documento primário ou registro institucional direto</td></tr>
+              <tr><td>B</td><td>Historiografia consolidada, com base documental</td></tr>
+              <tr><td>C</td><td>Indício forte ou interpretação plausível, sem prova direta</td></tr>
+              <tr><td>D</td><td>Tradição interna ou lenda conspiratória, sem base</td></tr>
+            </tbody>
+          </table>
+          <p class="small" style="margin-top:16px;max-width:520px;color:#2B2B2E">Regra de ouro: número de maçons em um evento não prova direção maçônica — prova densidade de rede.</p>
+        </div>
+        <div style="grid-column:9 / span 4;padding-top:6px">
+          <div class="ph" style="height:72%">
+            <img src="img/sociabilidade.jpg" alt="Livro-razão encadernado em couro aberto sobre mesa de madeira, com tinteiro e caneta.">
+          </div>
+          <p class="cap">Livro de assentos, séc. XIX · fotografia editorial</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot"><span>Maçonaria · bastidores ou não?</span><span class="num">03 / 15</span></div>
+  </section>
+
+  <!-- 04 · EIXO 1 -->
+  <section class="slide" id="s4" aria-label="Slide 4: eixo político e constitucional">
+    <span class="tab">Eixo 01 / 03</span>
+    <span class="meta">04 / 15</span>
+
+    <div class="body">
+      <div class="grid">
+        <div style="grid-column:1 / span 5">
+          <div class="ph" style="height:82%">
+            <img src="img/assembleia.jpg" alt="Bancos de madeira de um parlamento oitocentista sob luz difusa.">
+          </div>
+          <p class="cap">Sala de deliberação · fotografia editorial</p>
+        </div>
+        <div style="grid-column:7 / span 6;padding-top:18px">
+          <p class="kicker">Eixo político e constitucional</p>
+          <h2 class="h2" style="margin-top:12px;font-size:44px">A loja como<br>escola de governo</h2>
+          <p style="margin-top:16px;max-width:430px">Eleição anual, votação por maioria, representação de oficinas e um texto fundante: as <em>Constituições</em> de Anderson, de 1723.</p>
+          <ul class="list" style="margin-top:20px">
+            <li><svg class="ic" aria-hidden="true"><use href="#i-flag"/></svg><div><div class="t">Estados Unidos · 1776–1787</div><div class="d">8 ou 9 dos 56 signatários; 13 dos 39 constituintes.</div></div></li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-scale"/></svg><div><div class="t">Portugal · 1820</div><div class="d">O Sinédrio articula a Revolução Liberal e a Constituição de 1822.</div></div></li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-column"/></svg><div><div class="t">Brasil · 1822 e 1890</div><div class="d">Grande Oriente Brasílico; separação Igreja–Estado.</div></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot"><span>Maçonaria · bastidores ou não?</span><span class="num">04 / 15</span></div>
+  </section>
+
+  <!-- 05 · EIXO 2 -->
+  <section class="slide" id="s5" aria-label="Slide 5: eixo social e associativo">
+    <span class="tab">Eixo 02 / 03</span>
+    <span class="meta">05 / 15</span>
+
+    <div class="body">
+      <div class="grid">
+        <div style="grid-column:1 / span 6;padding-top:22px">
+          <p class="kicker">Eixo social e associativo</p>
+          <hr class="rule-ink" style="margin:18px 0 20px">
+          <h2 class="h2" style="font-size:48px">Antes de secreta,<br>uma associação civil</h2>
+          <p style="margin-top:18px;max-width:430px">Socorro mútuo, escolas, hospitais e clubes — numa época em que a sociedade civil ainda não existia como a conhecemos.</p>
+          <div style="margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:460px">
+            <div><p class="small" style="color:#111;font-weight:600">Mutualismo</p><p class="small">Doentes, viúvas, órfãos, bibliotecas.</p></div>
+            <div><p class="small" style="color:#111;font-weight:600">Abolicionismo</p><p class="small">1871, 1885, 1888: direção maçônica expressiva.</p></div>
+            <div><p class="small" style="color:#111;font-weight:600">Recrutamento</p><p class="small">A oficialidade do Exército como viveiro de lojas.</p></div>
+            <div><p class="small" style="color:#111;font-weight:600">Face conservadora</p><p class="small">A mesma rede apoia o golpe de 1964.</p></div>
+          </div>
+        </div>
+        <div style="grid-column:8 / span 5;padding-top:6px">
+          <div class="ph" style="height:74%">
+            <img src="img/sociabilidade.jpg" alt="Livro de assentos e tinteiro sobre mesa de madeira, luz de janela.">
+          </div>
+          <p class="cap">Registro de socorros mútuos · fotografia editorial</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot"><span>Maçonaria · bastidores ou não?</span><span class="num">05 / 15</span></div>
+  </section>
+
+  <!-- 06 · EIXO 3 -->
+  <section class="slide" id="s6" aria-label="Slide 6: eixo cultural, simbólico e de imprensa">
+    <span class="tab">Eixo 03 / 03</span>
+    <span class="meta">06 / 15</span>
+
+    <div style="position:absolute;left:76px;top:112px;width:640px">
+      <p class="kicker">Eixo cultural, simbólico e de imprensa</p>
+      <div style="display:flex;align-items:flex-end;gap:26px;margin-top:10px">
+        <p class="metric" style="font-size:92px">1734</p>
+        <p class="small" style="max-width:280px;padding-bottom:8px">Franklin publica as <em>Constituições</em> na Filadélfia: a imprensa entra na ordem.</p>
+      </div>
+    </div>
+
+    <div class="ph" style="position:absolute;left:0;right:0;bottom:62px;height:44%">
+      <img src="img/imprensa.jpg" alt="Oficina tipográfica histórica com prensa de ferro, caixas de tipos e rolos de tinta.">
+    </div>
+
+    <div class="card" style="position:absolute;left:76px;bottom:86px;width:430px">
+      <p class="kicker">Três máquinas de opinião</p>
+      <p class="big" style="margin-top:10px;font-size:21px">Il Risorgimento · A República · A Cidade do Rio</p>
+      <p class="small" style="margin-top:10px">Cavour (1847), Quintino Bocaiúva (1870) e José do Patrocínio (1887).</p>
+    </div>
+
+    <p class="small" style="position:absolute;right:76px;top:150px;width:290px;text-align:right">A “Marselhesa composta em loja” é versão repetida, sem prova documental.</p>
+
+    <div class="foot"><span>Maçonaria · bastidores ou não?</span><span class="num">06 / 15</span></div>
+  </section>
+
+  <!-- 07 · CRONOLOGIA I -->
+  <section class="slide" id="s7" aria-label="Slide 7: cronologia 1717 a 1789">
+    <span class="tab">Cronologia I / III</span>
+    <span class="meta">07 / 15</span>
+
+    <div class="body">
+      <p class="kicker">1717 — 1789</p>
+      <h2 class="h2" style="font-size:42px;margin-top:8px">A ordem se instala</h2>
+
+      <div class="radial">
+        <div class="arc" aria-hidden="true"></div>
+        <span class="dot" style="left:11.67%;top:35.8%" aria-hidden="true"></span>
+        <span class="dotn" style="left:11.67%;top:35.8%">01</span>
+        <span class="dot" style="left:35%;top:4.6%" aria-hidden="true"></span>
+        <span class="dotn" style="left:35%;top:4.6%">02</span>
+        <span class="dot" style="left:58.33%;top:1.4%" aria-hidden="true"></span>
+        <span class="dotn" style="left:58.33%;top:1.4%">03</span>
+        <span class="dot" style="left:81.67%;top:22.6%" aria-hidden="true"></span>
+        <span class="dotn" style="left:81.67%;top:22.6%">04</span>
+
+        <div class="rlabels">
+          <div><p class="yr">1717</p><p class="nm">Grande Loja de Londres</p><p class="ds">Nasce a maçonaria especulativa moderna.</p></div>
+          <div><p class="yr">1734</p><p class="nm">Franklin publica Anderson</p><p class="ds">A imprensa leva as Constituições às colônias.</p></div>
+          <div><p class="yr">1776</p><p class="nm">Independência dos EUA</p><p class="ds">8 ou 9 dos 56 signatários eram maçons.</p></div>
+          <div><p class="yr">1789</p><p class="nm">Revolução Francesa</p><p class="ds">Lojas como caixa de ressonância do Iluminismo.</p></div>
+        </div>
+      </div>
+
+      <p class="small" style="position:absolute;left:0;right:0;bottom:0;border-top:1px solid var(--line);padding-top:12px">Também no período: 1723 Constituições · 1773 Festa do Chá · 1782 Grande Selo · 1789 Inconfidência Mineira.</p>
+    </div>
+
+    <div class="foot"><span>Maçonaria · bastidores ou não?</span><span class="num">07 / 15</span></div>
+  </section>
+
+  <!-- 08 · CRONOLOGIA II -->
+  <section class="slide" id="s8" aria-label="Slide 8: cronologia 1810 a 1859">
+    <span class="tab">Cronologia II / III</span>
+    <span class="meta">08 / 15</span>
+
+    <div class="body">
+      <p class="kicker">1810 — 1859</p>
+      <h2 class="h2" style="font-size:42px;margin-top:8px">Independências e nações</h2>
+
+      <div class="radial">
+        <div class="arc" aria-hidden="true"></div>
+        <span class="dot" style="left:11.67%;top:35.8%" aria-hidden="true"></span>
+        <span class="dotn" style="left:11.67%;top:35.8%">01</span>
+        <span class="dot" style="left:35%;top:4.6%" aria-hidden="true"></span>
+        <span class="dotn" style="left:35%;top:4.6%">02</span>
+        <span class="dot" style="left:58.33%;top:1.4%" aria-hidden="true"></span>
+        <span class="dotn" style="left:58.33%;top:1.4%">03</span>
+        <span class="dot" style="left:81.67%;top:22.6%" aria-hidden="true"></span>
+        <span class="dotn" style="left:81.67%;top:22.6%">04</span>
+
+        <div class="rlabels">
+          <div><p class="yr">1810</p><p class="nm">Carbonária, em Nápoles</p><p class="ds">Estrutura maçônica, projeto nacional italiano.</p></div>
+          <div><p class="yr">1812</p><p class="nm">Logia Lautaro</p><p class="ds">Sociedade política — não loja regular — em Buenos Aires.</p></div>
+          <div><p class="yr">1820</p><p class="nm">Revolução do Porto</p><p class="ds">O Sinédrio impõe as Cortes e a Constituição de 1822.</p></div>
+          <div><p class="yr">1822</p><p class="nm">Independência do Brasil</p><p class="ds">Grande Oriente Brasílico; D. Pedro inicia como Guatimozim.</p></div>
+        </div>
+      </div>
+
+      <p class="small" style="position:absolute;left:0;right:0;bottom:0;border-top:1px solid var(--line);padding-top:12px">Também no período: 1821 México · 1835 Farroupilha · 1847 Il Risorgimento · 1848 pedra do Monumento a Washington · 1859–70 unificação italiana.</p>
+    </div>
+
+    <div class="foot"><span>Maçonaria · bastidores ou não?</span><span class="num">08 / 15</span></div>
+  </section>
+
+  <!-- 09 · CRONOLOGIA III -->
+  <section class="slide" id="s9" aria-label="Slide 9: cronologia 1871 a 1964">
+    <span class="tab">Cronologia III / III</span>
+    <span class="meta">09 / 15</span>
+
+    <div class="body">
+      <p class="kicker">1871 — 1964</p>
+      <h2 class="h2" style="font-size:42px;margin-top:8px">Cidadania, República, poder</h2>
+
+      <div class="radial">
+        <div class="arc" aria-hidden="true"></div>
+        <span class="dot" style="left:11.67%;top:35.8%" aria-hidden="true"></span>
+        <span class="dotn" style="left:11.67%;top:35.8%">01</span>
+        <span class="dot" style="left:35%;top:4.6%" aria-hidden="true"></span>
+        <span class="dotn" style="left:35%;top:4.6%">02</span>
+        <span class="dot" style="left:58.33%;top:1.4%" aria-hidden="true"></span>
+        <span class="dotn" style="left:58.33%;top:1.4%">03</span>
+        <span class="dot" style="left:81.67%;top:22.6%" aria-hidden="true"></span>
+        <span class="dotn" style="left:81.67%;top:22.6%">04</span>
+
+        <div class="rlabels">
+          <div><p class="yr">1871</p><p class="nm">Lei do Ventre Livre</p><p class="ds">O Grão-Mestre Visconde do Rio Branco assina o projeto.</p></div>
+          <div><p class="yr">1884</p><p class="nm">Pedra da Liberdade</p><p class="ds">Cerimônia maçônica em Nova York; Bartholdi, irmão.</p></div>
+          <div><p class="yr">1889</p><p class="nm">Proclamação da República</p><p class="ds">Reunião decisiva em casa de Benjamin Constant.</p></div>
+          <div><p class="yr">1964</p><p class="nm">Golpe militar</p><p class="ds">Estudo recente: a maioria dos maçons apoiou a queda de Goulart.</p></div>
+        </div>
+      </div>
+
+      <p class="small" style="position:absolute;left:0;right:0;bottom:0;border-top:1px solid var(--line);padding-top:12px">Também no período: 1890 separação Igreja–Estado · 1890–1901 Gran Dieta (México) · 1908–10 República em Portugal · 1978 sede do GOB para Brasília.</p>
+    </div>
+
+    <div class="foot"><span>Maçonaria · bastidores ou não?</span><span class="num">09 / 15</span></div>
+  </section>
+
+  <!-- 10 · PERSONAGENS I -->
+  <section class="slide" id="s10" aria-label="Slide 10: personagens, Estados Unidos, França e América Hispânica">
+    <span class="tab">Personagens I / II</span>
+    <span class="meta">10 / 15</span>
+
+    <div class="body">
+      <div class="grid">
+        <div style="grid-column:1 / span 4">
+          <div class="ph" style="height:84%">
+            <img src="img/cover.jpg" alt="Detalhe de frontão e colunas neoclássicas, luz natural difusa.">
+          </div>
+          <p class="cap">Arquitetura cívica, séc. XVIII–XIX · fotografia editorial</p>
+        </div>
+        <div style="grid-column:6 / span 7;padding-top:8px">
+          <p class="kicker">Quem estava no comando</p>
+          <h2 class="h2" style="font-size:38px;margin-top:8px">Três cenários,<br>uma mesma rede</h2>
+          <ul class="list" style="margin-top:20px">
+            <li><svg class="ic" aria-hidden="true"><use href="#i-flag"/></svg><div><div class="t">Estados Unidos · Washington · Franklin · Lafayette</div><div class="d">Rede no comando militar e na diplomacia; 13 dos 39 constituintes.</div></div></li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg><div><div class="t">França · Mirabeau · Lafayette</div><div class="d">Danton e Robespierre não eram maçons; Marat é disputado.</div></div></li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-globe"/></svg><div><div class="t">América Hispânica · Bolívar</div><div class="d">San Martín e O'Higgins pertenciam à Lautaro: sociedade política, não loja regular.</div></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot"><span>Maçonaria · bastidores ou não?</span><span class="num">10 / 15</span></div>
+  </section>
+
+  <!-- 11 · PERSONAGENS II -->
+  <section class="slide" id="s11" aria-label="Slide 11: personagens brasileiros">
+    <span class="tab">Personagens II / II</span>
+    <span class="meta">11 / 15</span>
+
+    <div class="body">
+      <div class="grid">
+        <div style="grid-column:1 / span 7">
+          <p class="kicker">Brasil · dois ciclos</p>
+          <h2 class="h2" style="font-size:38px;margin-top:8px">A independência<br>e a República</h2>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:26px;max-width:620px">
+            <div>
+              <p class="small" style="color:#111;font-weight:600;letter-spacing:.08em">1822 · INDEPENDÊNCIA</p>
+              <p style="margin-top:10px;font-size:13.5px;line-height:1.65;color:#2B2B2E">José Bonifácio <span style="color:#666B73">(1º Grão-Mestre)</span><br>Gonçalves Ledo<br>José Clemente Pereira<br>D. Pedro I <span style="color:#666B73">(“Guatimozim”)</span></p>
+            </div>
+            <div>
+              <p class="small" style="color:#111;font-weight:600;letter-spacing:.08em">1871–1889 · ABOLIÇÃO E REPÚBLICA</p>
+              <p style="margin-top:10px;font-size:13.5px;line-height:1.65;color:#2B2B2E">Visconde do Rio Branco<br>José do Patrocínio<br>Joaquim Nabuco<br>Quintino Bocaiúva<br>Benjamin Constant<br>Deodoro da Fonseca</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="grid-column:9 / span 4;padding-top:34px">
+          <div class="card">
+            <p class="kicker">Com reserva</p>
+            <p class="big" style="margin-top:10px;font-size:20px">Rui Barbosa<br>Tiradentes<br>Caxias e Osório</p>
+            <p class="small" style="margin-top:12px">Citados pela literatura maçônica, sem prova uniforme de iniciação.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="small" style="position:absolute;left:0;bottom:0;width:620px;border-top:1px solid var(--line);padding-top:12px">Densidade de rede não é direção política.</p>
+    </div>
+
+    <div class="foot"><span>Maçonaria · bastidores ou não?</span><span class="num">11 / 15</span></div>
+  </section>
+
+  <!-- 12 · NEGATIVO DA PROVA -->
+  <section class="slide" id="s12" aria-label="Slide 12: o negativo da prova">
+    <span class="tab">Verificação</span>
+    <span class="meta">12 / 15</span>
+
+    <div class="body">
+      <div class="grid">
+        <div style="grid-column:1 / span 8">
+          <p class="kicker">O negativo da prova</p>
+          <h2 class="h2" style="font-size:38px;margin-top:8px">Onde a lenda é mais forte,<br>a prova é mais fraca</h2>
+          <table class="tbl" style="margin-top:22px" aria-label="Afirmações difundidas e o que a documentação mostra">
+            <tbody>
+              <tr><td>Thomas Jefferson</td><td>Sem registro de iniciação</td></tr>
+              <tr><td>Danton e Robespierre</td><td>Não eram maçons</td></tr>
+              <tr><td>Tiradentes</td><td>Nenhum documento; 1ª loja no Rio em 1801</td></tr>
+              <tr><td>San Martín e O'Higgins</td><td>Lautaro: sociedade política, não loja</td></tr>
+              <tr><td>“50 de 56 signatários”</td><td>8 ou 9 comprovados</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="grid-column:9 / span 4;align-self:end;padding-bottom:22px">
+          <div class="card">
+            <p class="kicker">Regra de ouro</p>
+            <p class="big" style="margin-top:12px;font-size:22px">Presença não prova direção.</p>
+            <p class="small" style="margin-top:12px">Um evento com muitos maçons prova densidade de rede — não comando maçônico.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot"><span>Maçonaria · bastidores ou não?</span><span class="num">12 / 15</span></div>
+  </section>
+
+  <!-- 13 · GRANDE SELO -->
+  <section class="slide" id="s13" aria-label="Slide 13: Grande Selo dos EUA e a nota de 1 dólar">
+    <span class="tab">Monumentos I / II</span>
+    <span class="meta">13 / 15</span>
+
+    <div style="position:absolute;left:76px;top:112px;width:700px">
+      <p class="kicker">Grande Selo dos EUA · nota de 1 dólar</p>
+      <div style="display:flex;align-items:flex-end;gap:28px;margin-top:10px">
+        <p class="metric" style="font-size:96px">1782</p>
+        <div style="padding-bottom:8px">
+          <h2 class="h2" style="font-size:38px">O selo não é maçônico</h2>
+          <p class="small" style="margin-top:8px;max-width:330px">O olho da Providência e a pirâmide vêm da iconografia cristã e iluminista.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ph" style="position:absolute;left:0;right:0;bottom:62px;height:44%">
+      <img src="img/selo.jpg" alt="Macro de placa de aço gravada e linhas de talho-doce impressas em papel, sem letras legíveis.">
+    </div>
+
+    <div class="card" style="position:absolute;left:76px;bottom:86px;width:520px">
+      <p class="kicker">Três fatos documentados</p>
+      <p class="small" style="margin-top:10px;color:#E6E8EC">1 · Projetistas finais não eram maçons.<br>2 · O olho foi sugerido por Du Simitière, não maçom.<br>3 · O selo só entra na nota de 1 dólar em 1935.</p>
+    </div>
+
+    <div class="foot"><span>Maçonaria · bastidores ou não?</span><span class="num">13 / 15</span></div>
+  </section>
+
+  <!-- 14 · MODULAR GRID -->
+  <section class="slide" id="s14" aria-label="Slide 14: monumentos e marcos cívicos">
+    <span class="tab">Monumentos II / II</span>
+    <span class="meta">14 / 15</span>
+
+    <div class="body">
+      <p class="kicker">Pedra fundamental, rito e nação</p>
+      <h2 class="h2" style="font-size:36px;margin-top:8px">Três monumentos, três vínculos</h2>
+
+      <div style="display:grid;grid-template-columns:1.05fr 1fr 1fr;gap:18px;margin-top:20px">
+        <figure style="margin:0">
+          <div class="ph" style="height:224px"><img src="img/washington.jpg" alt="Obelisco do Monumento a Washington ao entardecer, céu claro e árvores no primeiro plano."></div>
+          <figcaption style="margin-top:10px">
+            <p class="small" style="color:#111;font-weight:600">Monumento a Washington · 1848–1885</p>
+            <p class="small">Pedra fundamental em rito maçônico; 22 pedras maçônicas no interior; 250 lojas doadoras.</p>
+          </figcaption>
+        </figure>
+        <figure style="margin:0">
+          <div class="ph" style="height:224px"><img src="img/liberdade.jpg" alt="Estátua da Liberdade vista em ângulo baixo contra céu claro."></div>
+          <figcaption style="margin-top:10px">
+            <p class="small" style="color:#111;font-weight:600">Estátua da Liberdade · 1884–1886</p>
+            <p class="small">Bartholdi, Loja Alsácia-Lorena; pedestal lançado em cerimônia maçônica em Nova York.</p>
+          </figcaption>
+        </figure>
+        <figure style="margin:0">
+          <div class="ph" style="height:224px"><img src="img/paco.jpg" alt="Fachada colonial branca com janelas em arco e varanda de pedra, em praça histórica do Rio de Janeiro."></div>
+          <figcaption style="margin-top:10px">
+            <p class="small" style="color:#111;font-weight:600">Praça XV e Paço Imperial · Rio</p>
+            <p class="small">Fico, aclamação e Lei Áurea; o Palácio do Lavradio foi sede do GOB de 1842 a 1978.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:22px;border-top:1px solid var(--line);padding-top:14px">
+        <p class="small" style="color:#2B2B2E"><strong style="font-weight:600">Cerimônia ≠ código.</strong> O rito público de pedra fundamental explica a fama — não um segredo.</p>
+        <p class="small" style="color:#2B2B2E"><strong style="font-weight:600">Marco nacional ≠ monumento maçônico.</strong> Praça XV e Paço Imperial são patrimônio brasileiro.</p>
+      </div>
+    </div>
+
+    <div class="foot"><span>Maçonaria · bastidores ou não?</span><span class="num">14 / 15</span></div>
+  </section>
+
+  <!-- 15 · FECHO -->
+  <section class="slide" id="s15" aria-label="Slide 15: conclusão">
+    <span class="tab">Conclusão</span>
+    <span class="meta">15 / 15</span>
+
+    <div style="position:absolute;left:76px;top:140px;width:660px">
+      <p class="kicker">Resposta final</p>
+      <h1 class="display" style="font-size:70px;margin-top:16px">Bastidor, sim.<br>Comando, não.</h1>
+      <hr class="rule-ink" style="margin:28px 0 20px">
+      <p class="lead" style="max-width:470px">A ordem foi infraestrutura de confiança e circulação de informação — não arquitetura de poder.</p>
+    </div>
+
+    <div class="card" style="position:absolute;right:76px;top:150px;width:356px">
+      <p class="kicker">O relatório em números</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px 18px;margin-top:16px">
+        <div><p class="metric" style="font-size:46px;color:#fff">3</p><p class="small">eixos de atuação</p></div>
+        <div><p class="metric" style="font-size:46px;color:#fff">30</p><p class="small">marcos históricos</p></div>
+        <div><p class="metric" style="font-size:46px;color:#fff">12</p><p class="small">mitos testados</p></div>
+        <div><p class="metric" style="font-size:46px;color:#fff">38</p><p class="small">fontes numeradas</p></div>
+      </div>
+    </div>
+
+    <p class="small" style="position:absolute;left:76px;bottom:80px;width:640px">Fontes completas, com link e grau de evidência, no relatório <em>A maçonaria nos bastidores — ou não?</em> (documento anexo).</p>
+
+    <div class="foot"><span>Maçonaria · bastidores ou não?</span><span class="num">15 / 15</span></div>
+  </section>
+
+</main>
+
+<div class="hint" id="hint">Use ← → para navegar · P para imprimir</div>
+<div class="ui" role="group" aria-label="Controles da apresentação">
+  <button type="button" id="prev" aria-label="Slide anterior">← Anterior</button>
+  <button type="button" id="next" aria-label="Próximo slide">Próximo →</button>
+  <button type="button" id="print" aria-label="Imprimir ou exportar em PDF">PDF</button>
+</div>
+<p class="sr" id="live" aria-live="polite"></p>
+
+<script>
+(function(){
+  const stage = document.getElementById('stage');
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const live = document.getElementById('live');
+  const hint = document.getElementById('hint');
+  let index = 0;
+
+  function fit(){
+    const pad = 56;
+    const s = Math.min((window.innerWidth - pad) / 1280, (window.innerHeight - pad - 54) / 720);
+    stage.style.transform = 'scale(' + Math.max(0.3, s) + ')';
+  }
+  window.addEventListener('resize', fit);
+  fit();
+
+  function show(i, push){
+    index = Math.max(0, Math.min(slides.length - 1, i));
+    slides.forEach((s, k) => {
+      s.classList.toggle('is-active', k === index);
+      s.setAttribute('aria-hidden', k === index ? 'false' : 'true');
+    });
+    live.textContent = 'Slide ' + (index + 1) + ' de ' + slides.length;
+    if (push !== false) history.replaceState(null, '', '#' + (index + 1));
+    document.title = 'Slide ' + (index + 1) + '/15 · A maçonaria nos bastidores';
+    hint.classList.add('is-hidden');
+  }
+
+  function next(){ show(index + 1); }
+  function prev(){ show(index - 1); }
+
+  document.getElementById('next').addEventListener('click', next);
+  document.getElementById('prev').addEventListener('click', prev);
+  document.getElementById('print').addEventListener('click', () => window.print());
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' '){ e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp'){ e.preventDefault(); prev(); }
+    else if (e.key === 'Home'){ e.preventDefault(); show(0); }
+    else if (e.key === 'End'){ e.preventDefault(); show(slides.length - 1); }
+    else if (e.key.toLowerCase() === 'p' && !e.metaKey && !e.ctrlKey){ e.preventDefault(); window.print(); }
+  });
+
+  const start = parseInt((location.hash || '').replace('#',''), 10);
+  show(Number.isFinite(start) && start > 0 ? start - 1 : 0, false);
+
+  setTimeout(() => hint.classList.add('is-hidden'), 6000);
+})();
+</script>
+</body>
+</html>

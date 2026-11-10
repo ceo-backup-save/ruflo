@@ -1,30 +1,69 @@
 <!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><title>Duplas cruzadas — fixa + excluída + 20 dezenas</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Fixa + excluída com equilíbrio e prevalência</title>
 <style>body{font-family:system-ui,sans-serif;max-width:1000px;margin:0 auto;padding:24px;background:#f8fafc;color:#111}
 .card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:18px;margin:16px 0}
 table{border-collapse:collapse;width:100%;font-size:14px}th,td{border:1px solid #e2e8f0;padding:6px 8px;text-align:left}th{background:#eff6ff}
-.mono{font-family:ui-monospace,monospace}.bar{background:#e2e8f0;border-radius:6px;height:14px;min-width:120px;overflow:hidden}.bar span{display:block;height:100%}
-.aviso{background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;padding:12px}</style></head><body>
-<h1>🔀 Duplas cruzadas pares 1–12 — fixa + excluída simultâneas</h1>
-<p>Baixas (1–6): 02,04,06 · Altas (7–12): 08,10,12 · <b>9 duplas cruzadas</b> · Exemplo: <b>FIXA 06 12</b> + <b>EXCLUÍDA 04 10</b></p>
-<div class="card"><h2>As 9 duplas nos últimos 100 concursos (esperado 35)</h2>
-<table><tr><th>#</th><th>Dupla</th><th>Ocorr.</th><th>%</th><th>Frequência</th></tr><tr><td>1</td><td class="mono"><b>06 12</b></td><td>43</td><td>43%</td><td><div class="bar"><span style="width:100.0%;background:#2563eb"></span></div></td></tr>
-<tr><td>2</td><td class="mono"><b>04 08</b></td><td>37</td><td>37%</td><td><div class="bar"><span style="width:86.0%;background:#2563eb"></span></div></td></tr>
-<tr><td>3</td><td class="mono"><b>06 08</b></td><td>37</td><td>37%</td><td><div class="bar"><span style="width:86.0%;background:#2563eb"></span></div></td></tr>
-<tr><td>4</td><td class="mono"><b>04 12</b></td><td>35</td><td>35%</td><td><div class="bar"><span style="width:81.4%;background:#2563eb"></span></div></td></tr>
-<tr><td>5</td><td class="mono"><b>02 12</b></td><td>32</td><td>32%</td><td><div class="bar"><span style="width:74.4%;background:#2563eb"></span></div></td></tr>
-<tr><td>6</td><td class="mono"><b>06 10</b></td><td>32</td><td>32%</td><td><div class="bar"><span style="width:74.4%;background:#2563eb"></span></div></td></tr>
-<tr><td>7</td><td class="mono"><b>02 08</b></td><td>28</td><td>28%</td><td><div class="bar"><span style="width:65.1%;background:#2563eb"></span></div></td></tr>
-<tr><td>8</td><td class="mono"><b>02 10</b></td><td>28</td><td>28%</td><td><div class="bar"><span style="width:65.1%;background:#2563eb"></span></div></td></tr>
-<tr><td>9</td><td class="mono"><b>04 10</b></td><td>28</td><td>28%</td><td><div class="bar"><span style="width:65.1%;background:#2563eb"></span></div></td></tr></table></div>
-<div class="card"><h2>💰 Expectativa de retorno</h2>
-<table><tr><th>Estratégia</th><th>Custo/concurso</th><th>Retorno esperado</th><th>Prejuízo esperado</th></tr>
-<tr><td>20 jogos simples (fixa+excluída)</td><td>R$ 70,00</td><td>~R$ 31.58</td><td>~R$ 38.42</td></tr>
-<tr><td>1 aposta de 20 dezenas</td><td>R$ 54,264.00</td><td>~R$ 24,480.59</td><td>~R$ 29,783.41</td></tr>
-<tr><td>5 apostas de 20 dezenas</td><td>R$ 271,320.00</td><td>~R$ 122,402.96</td><td>~R$ 148,917.04</td></tr></table>
-<p>Jackpot simultâneo só no cenário fixa toda no sorteio E excluída toda fora: <b>6.23%</b> dos concursos. Por real apostado, o retorno é sempre ~43–45%.</p></div>
+.mono{font-family:ui-monospace,monospace}.aviso{background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;padding:12px}</style></head><body>
+<h1>⚖️ Fixa + excluída aprimorada — equilíbrio 7/8 + prevalência</h1>
+<p><b>FIXA 06 12</b> · <b>EXCLUÍDA 04 10</b> · 20 jogos de 15 com paridade 7/8 e faixa 7/8, demais dezenas por prevalência.</p>
+<div class="card"><h2>Os 20 jogos</h2><table><tr><th>#</th><th>Jogo</th><th>Pares/Ímpares</th><th>1–16 / 17–25</th></tr><tr><td>1</td><td class="mono"><b>01 02 03 05 06 07 12 13 17 18 19 20 22 23 24</b></td><td>7/8</td><td>8/7</td></tr>
+<tr><td>2</td><td class="mono"><b>01 02 03 05 06 08 12 15 18 19 20 21 22 24 25</b></td><td>8/7</td><td>8/7</td></tr>
+<tr><td>3</td><td class="mono"><b>01 02 03 06 07 08 12 13 18 19 20 21 22 24 25</b></td><td>8/7</td><td>8/7</td></tr>
+<tr><td>4</td><td class="mono"><b>01 02 03 06 08 09 11 12 17 18 19 22 23 24 25</b></td><td>7/8</td><td>8/7</td></tr>
+<tr><td>5</td><td class="mono"><b>01 02 05 06 09 12 14 16 17 18 19 20 23 24 25</b></td><td>8/7</td><td>8/7</td></tr>
+<tr><td>6</td><td class="mono"><b>01 03 06 07 08 09 12 14 17 18 20 21 22 23 24</b></td><td>8/7</td><td>8/7</td></tr>
+<tr><td>7</td><td class="mono"><b>01 03 06 07 08 11 12 16 18 19 21 22 23 24 25</b></td><td>7/8</td><td>8/7</td></tr>
+<tr><td>8</td><td class="mono"><b>01 03 06 07 09 12 14 16 17 18 19 20 22 23 24</b></td><td>8/7</td><td>8/7</td></tr>
+<tr><td>9</td><td class="mono"><b>01 03 06 08 11 12 14 15 17 19 20 21 22 24 25</b></td><td>7/8</td><td>8/7</td></tr>
+<tr><td>10</td><td class="mono"><b>01 05 06 08 12 13 14 16 18 19 20 21 22 23 25</b></td><td>8/7</td><td>8/7</td></tr>
+<tr><td>11</td><td class="mono"><b>01 05 06 09 12 14 15 16 17 18 19 20 23 24 25</b></td><td>7/8</td><td>8/7</td></tr>
+<tr><td>12</td><td class="mono"><b>02 03 06 07 08 09 12 17 18 19 20 21 23 24 25</b></td><td>7/8</td><td>7/8</td></tr>
+<tr><td>13</td><td class="mono"><b>02 03 06 11 12 13 16 17 19 20 21 22 23 24 25</b></td><td>7/8</td><td>7/8</td></tr>
+<tr><td>14</td><td class="mono"><b>02 05 06 07 08 12 13 17 18 19 20 21 23 24 25</b></td><td>7/8</td><td>7/8</td></tr>
+<tr><td>15</td><td class="mono"><b>02 06 07 08 09 12 14 17 19 20 21 22 23 24 25</b></td><td>8/7</td><td>7/8</td></tr>
+<tr><td>16</td><td class="mono"><b>02 06 07 09 12 13 15 16 17 18 19 21 22 24 25</b></td><td>7/8</td><td>8/7</td></tr>
+<tr><td>17</td><td class="mono"><b>03 05 06 07 08 09 12 16 18 19 20 21 22 23 25</b></td><td>7/8</td><td>8/7</td></tr>
+<tr><td>18</td><td class="mono"><b>03 05 06 08 12 13 14 16 17 18 19 20 23 24 25</b></td><td>8/7</td><td>8/7</td></tr>
+<tr><td>19</td><td class="mono"><b>03 06 12 13 14 15 16 17 18 19 20 21 22 24 25</b></td><td>8/7</td><td>7/8</td></tr>
+<tr><td>20</td><td class="mono"><b>06 08 11 12 13 14 15 16 17 18 19 20 21 22 25</b></td><td>8/7</td><td>8/7</td></tr></table></div>
+<div class="card"><h2>✅ Recomendado: paridade 7/8 + faixa natural 9–10</h2>
+<table><tr><th>#</th><th>Jogo</th><th>Pares/Ímpares</th><th>1–16 / 17–25</th></tr><tr><td>1</td><td class="mono"><b>01 02 03 06 07 08 09 12 14 15 21 22 23 24 25</b></td><td>7/8</td><td>10/5</td></tr>
+<tr><td>2</td><td class="mono"><b>01 02 03 06 07 08 12 13 14 16 17 18 22 23 25</b></td><td>8/7</td><td>10/5</td></tr>
+<tr><td>3</td><td class="mono"><b>01 02 03 06 08 09 11 12 13 16 19 20 23 24 25</b></td><td>7/8</td><td>10/5</td></tr>
+<tr><td>4</td><td class="mono"><b>01 02 05 06 08 11 12 13 16 17 18 19 20 22 23</b></td><td>8/7</td><td>9/6</td></tr>
+<tr><td>5</td><td class="mono"><b>01 02 05 06 09 11 12 13 14 17 18 19 20 22 25</b></td><td>7/8</td><td>9/6</td></tr>
+<tr><td>6</td><td class="mono"><b>01 02 05 06 09 12 13 14 15 16 17 21 22 23 24</b></td><td>7/8</td><td>10/5</td></tr>
+<tr><td>7</td><td class="mono"><b>01 02 06 07 08 11 12 13 14 18 19 20 23 24 25</b></td><td>8/7</td><td>9/6</td></tr>
+<tr><td>8</td><td class="mono"><b>01 02 06 07 09 11 12 13 15 18 20 21 22 24 25</b></td><td>7/8</td><td>9/6</td></tr>
+<tr><td>9</td><td class="mono"><b>01 02 06 07 12 13 14 15 16 17 18 19 22 23 24</b></td><td>8/7</td><td>9/6</td></tr>
+<tr><td>10</td><td class="mono"><b>01 03 05 06 07 08 12 13 15 17 18 20 22 23 24</b></td><td>7/8</td><td>9/6</td></tr>
+<tr><td>11</td><td class="mono"><b>01 03 05 06 07 08 12 14 15 16 18 19 20 21 23</b></td><td>7/8</td><td>10/5</td></tr>
+<tr><td>12</td><td class="mono"><b>01 03 05 06 08 11 12 14 15 16 17 18 20 22 25</b></td><td>8/7</td><td>10/5</td></tr>
+<tr><td>13</td><td class="mono"><b>01 03 05 06 08 11 12 15 16 19 20 22 23 24 25</b></td><td>7/8</td><td>9/6</td></tr>
+<tr><td>14</td><td class="mono"><b>01 05 06 07 08 09 12 15 16 18 19 20 21 22 24</b></td><td>8/7</td><td>9/6</td></tr>
+<tr><td>15</td><td class="mono"><b>02 03 05 06 07 08 09 11 12 17 18 20 21 23 24</b></td><td>7/8</td><td>9/6</td></tr>
+<tr><td>16</td><td class="mono"><b>02 03 05 06 07 08 12 15 16 18 19 20 21 22 23</b></td><td>8/7</td><td>9/6</td></tr>
+<tr><td>17</td><td class="mono"><b>02 03 05 06 08 11 12 13 15 16 17 21 22 23 24</b></td><td>7/8</td><td>10/5</td></tr>
+<tr><td>18</td><td class="mono"><b>02 03 06 07 09 12 14 15 16 17 18 19 21 22 25</b></td><td>7/8</td><td>9/6</td></tr>
+<tr><td>19</td><td class="mono"><b>03 05 06 07 08 11 12 13 14 16 18 19 21 22 23</b></td><td>7/8</td><td>10/5</td></tr>
+<tr><td>20</td><td class="mono"><b>03 05 06 08 11 12 13 15 16 17 18 20 23 24 25</b></td><td>7/8</td><td>9/6</td></tr></table></div>
 <div class="card"><h2>📈 Backtest (100 concursos)</h2>
-<p>20 jogos simples: custo R$ 7,000.00 · prêmios R$ 1,988.00 · saldo <b>R$ -5,012.00</b><br>
-1 aposta de 20: custo R$ 5,426,400.00 · prêmios R$ 3,825,674.00 · saldo <b>R$ -1,600,726.00</b></p></div>
-<div class="aviso">⚠️ Nenhuma dupla ou frequência passada altera a esperança matemática negativa (43,35% de prêmio bruto). Aposta de 20 dezenas custa R$ 54 mil/concurso.</div>
+<p>Com equilíbrio 7/8 + 7/8: prêmios R$ 1,953.00 sobre R$ 7,000.00 (27.9%)<br>
+Sem equilíbrio: prêmios R$ 3,551.00 sobre R$ 7,000.00 (50.7%)<br>
+Paridade 7/8 + faixa natural: prêmios R$ 2,205.00 sobre R$ 7,000.00 (31.5%)<br>
+<small>Viés de sobreajuste: prevalência calculada nos mesmos 100 concursos do backtest.</small></p></div>
+<div class="card"><h2>🔢 Universo de jogos por restrição</h2>
+<table><tr><th>Restrição</th><th>Jogos</th><th>%</th></tr><tr><td>Nenhuma</td><td>203,490</td><td>100.0%</td></tr>
+<tr><td>Só paridade 7/8</td><td>120,120</td><td>59.0%</td></tr>
+<tr><td>Só faixa 7/8</td><td>40,392</td><td>19.8%</td></tr>
+<tr><td>Paridade 7/8 + faixa 7/8</td><td>25,704</td><td>12.6%</td></tr>
+<tr><td>Paridade 7/8 + faixa natural</td><td>75,144</td><td>36.9%</td></tr></table>
+<p><small>Universo: 21 dezenas livres (fixa 06-12 dentro, excluída 04-10 fora).</small></p></div>
+<div class="card"><h2>🎲 Monte Carlo — 40 conjuntos × 100 concursos</h2>
+<table><tr><th>Técnica</th><th>Prêmio médio</th><th>Desvio</th><th>Retorno médio</th></tr>
+<tr><td>Paridade 7/8 + faixa 7/8</td><td>R$ 1,996.97</td><td>±R$ 248.63</td><td>28.5%</td></tr>
+<tr><td>Sem restrição</td><td>R$ 2,531.60</td><td>±R$ 628.09</td><td>36.2%</td></tr>
+<tr><td>Paridade 7/8 + faixa natural</td><td>R$ 2,332.82</td><td>±R$ 529.25</td><td>33.3%</td></tr></table>
+<p>Expectativa teórica: ~45% (R$ 3.160 para 2.000 jogos). As médias ficam abaixo porque o prêmio de 15 quase nunca sai em 2.000 jogos.</p></div>
+<div class="aviso">⚠️ <b>Conclusão honesta:</b> por simetria, a restrição <b>não aumenta</b> a chance por jogo — validado em 200 mil sorteios (11 acertos: 8,86% restrito × 8,86% irrestrito). A paridade 7/8 é real (56% dos concursos); a faixa 7/8 é artificial (10%). Recomendação: mantenha a paridade e relaxe a faixa para 9–10 em 1–16.</div>
 </body></html>

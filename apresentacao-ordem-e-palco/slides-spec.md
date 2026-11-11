@@ -209,3 +209,12 @@ Fotografia editorial colorida, luz difusa, sem texto gerado; ocupa no máximo 60
 ## 6. Exportar
 
 `P` → Paisagem 16:9, margens “Nenhuma”, “Gráficos de fundo” ativado → PDF com 16 páginas em 1920×1080.
+
+## Exportação
+
+| Arquivo | Formato | Observação |
+| --- | --- | --- |
+| `A-Ordem-e-o-Palco.pdf` | PDF, 16 páginas 1920×1080 px | Chromium headless em modo de impressão; Inter embutida (subconjunto). |
+| `A-Ordem-e-o-Palco.pptx` | PowerPoint 16:9 (13,333 × 7,5 in) | Versão editável: texto real, mesmas imagens, mesma grade. Usa Inter — se a fonte não estiver instalada na máquina, o PowerPoint substitui por uma sans similar. |
+
+Para regerar o PDF: abrir `index.html`, teclar `P` e salvar como PDF (paisagem, margens "Nenhuma", "Gráficos de fundo" ativo).
